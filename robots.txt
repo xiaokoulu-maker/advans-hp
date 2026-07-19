@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://advans-hp.vercel.app/sitemap.xml
