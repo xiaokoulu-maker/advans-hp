@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<!-- ============ SEO ============ -->
 <title>Advans（アドバンス）｜LP・広告・AIで企業を一歩前へ</title>
 <meta name="description" content="Advansは、LP制作・ホームページ制作・広告運用・SNSマーケティング・AI活用支援まで、集客に関わる領域を一貫して支援するデジタルスタジオです。企業の成長を、集客の側から。全国オンライン対応・初回相談無料。">
-<meta name="theme-color" content="#EDE7DD">
 <link rel="canonical" href="https://advans-hp.vercel.app/">
-
-<!-- ============ OGP / Twitter ============ -->
+<meta name="theme-color" content="#0A1A30">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Advans">
 <meta property="og:title" content="Advans（アドバンス）｜LP・広告・AIで企業を一歩前へ">
@@ -20,791 +17,634 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Advans（アドバンス）">
 <meta name="twitter:description" content="LP・広告・AIで、企業を一歩前へ。">
-
-<!-- ============ favicon（白タイル＋ロゴマーク） ============ -->
-<link rel="icon" href="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'><rect%20x='0'%20y='0'%20width='100'%20height='100'%20rx='20'%20fill='%23ffffff'/><g%20transform='translate(11,12)%20scale(0.78)'><path%20fill='%23211C17'%20fill-rule='evenodd'%20d='M50,9L90,91L67,91L50,57L33,91L10,91ZM50,31L41,54L59,54Z'/><path%20fill='%23D96A34'%20d='M15,72C42,66,68,57,89,29C91,26,93,26,92,29C91,33,88,37,83,41C63,58,43,66,22,75C18,77,13,76,15,72Z'/></g></svg>">
-
-<!-- ============ 構造化データ ============ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org","@type":"ProfessionalService",
-  "name":"Advans","alternateName":"アドバンス",
-  "description":"LP制作・ホームページ制作・広告運用・SNSマーケティング・AI活用支援を行うデジタルスタジオ。",
-  "url":"https://advans-hp.vercel.app/","email":"xiaokoulu@gmail.com",
-  "areaServed":"JP","slogan":"企業を一歩前へ。",
-  "knowsAbout":["ランディングページ制作","ホームページ制作","広告運用","SNSマーケティング","AI活用支援"]
-}
-</script>
-
-<!-- ============ Fonts（Zen Kaku Gothic New / Space Grotesk） ============ -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1A30'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%231E5CE6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   Advans — Design Tokens（デザインハンドオフ準拠）
-   暖色オフホワイト基調 / テラコッタオレンジ / エディトリアル
-   ========================================================= */
-:root{
-  /* accent */
-  --accent:#D96A34; --accent-hover:#C25526; --accent-lite:#F08A46; --accent-deep:#CE5A1E;
-  /* surfaces */
-  --bg:#EDE7DD; --panel-a:#F4EFE7; --panel-b:#FBF8F2; --card:#FFFFFF;
-  /* text */
-  --heading:#211C17; --text:#6E655B; --ink:#2A241E; --ink-2:#4A4239;
-  --sub:#9A8F82; --sub-2:#A2988A;
-  /* lines */
-  --ghost:rgba(33,28,23,.06); --card-border:rgba(33,28,23,.09); --sec-border:rgba(33,28,23,.07);
-  /* type */
-  --jp:'Zen Kaku Gothic New',sans-serif;
-  --en:'Space Grotesk',sans-serif;
-  /* layout */
-  --container:1300px;
-  --gutter:clamp(12px,3vw,32px);
-  --panel-pad:clamp(36px,5.5vw,72px);
-  --radius-panel:28px; --radius-card:20px;
-}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{margin:0;background:#0A1A30;font-family:'Noto Sans JP',sans-serif;color:#0C1B2E;overflow-x:hidden;line-height:1.85;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
+  a{color:#3B7BF0;text-decoration:none}
+  a:hover{color:#6C9BF5}
+  img{max-width:100%;display:block}
+  ::selection{background:#1E5CE6;color:#EAF1FB}
+  input,textarea,button{font-family:inherit}
+  h1,h2,h3,p{margin:0}
 
-/* =========================================================
-   Base
-   ========================================================= */
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  font-family:var(--jp);background:var(--bg);color:var(--text);
-  line-height:1.75;font-size:16px;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  padding:0 var(--gutter);overflow-x:hidden;
-}
-a{color:var(--accent);text-decoration:none}
-a:hover{color:var(--accent-hover)}
-svg{display:block}
-::selection{background:var(--accent);color:#fff}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  /* keyboard focus */
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #3B7BF0;outline-offset:3px;border-radius:6px}
 
-.wrap{max-width:var(--container);margin-inline:auto}
+  @keyframes advFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+  @keyframes advMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* =========================================================
-   Panels（角丸28pxの大パネルを交互背景で並べる）
-   ========================================================= */
-.panel{
-  max-width:var(--container);margin:0 auto clamp(14px,2vw,22px);
-  padding:var(--panel-pad);border-radius:var(--radius-panel);
-  border:1px solid var(--sec-border);position:relative;overflow:hidden;
-}
-.panel--a{background:var(--panel-a)}
-.panel--b{background:var(--panel-b)}
+  /* header nav / responsive */
+  .desktop-nav{display:flex;align-items:center;gap:26px}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;width:40px}
+  .menu-btn span{height:2px;background:#EAF1FB;border-radius:2px;display:block}
+  @media(max-width:1000px){.desktop-nav{display:none}.menu-btn{display:flex}}
+  .nav-link{color:#B8C6DB;font-size:13.5px;font-weight:500;letter-spacing:.04em;white-space:nowrap;transition:color .2s}
+  .nav-link:hover{color:#FFFFFF}
 
-/* =========================================================
-   Section head（橙短罫＋英アイブロウ＋和サブ → 900見出し → リード）
-   ========================================================= */
-.eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
-.eyebrow-rule{width:30px;height:1.5px;background:var(--accent);display:block;flex:none}
-.eyebrow-en{font:600 12px/1 var(--en);letter-spacing:.24em;color:var(--accent);text-transform:uppercase}
-.eyebrow-jp{font:500 13px/1 var(--jp);color:var(--sub)}
-.h-sec{margin:0 0 14px;font:900 clamp(28px,2.6vw,38px)/1.4 var(--jp);color:var(--heading);letter-spacing:.01em}
-.lead{margin:0;max-width:560px;font:400 15px/1.95 var(--jp);color:var(--text)}
-.sec-head{margin-bottom:44px}
+  /* buttons */
+  .btn-nav{background:#1E5CE6;color:#FFFFFF;padding:11px 22px;border-radius:8px;font-size:13.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap;transition:background .25s,transform .25s,box-shadow .25s;box-shadow:0 8px 22px rgba(30,92,230,0.4)}
+  .btn-nav:hover{background:#3B7BF0;color:#FFFFFF;transform:translateY(-1px)}
+  .btn-primary{transition:background .25s,transform .25s}
+  .btn-primary:hover{background:#3B7BF0;color:#FFFFFF;transform:translateY(-2px)}
+  .btn-ghost{transition:border-color .25s,background .25s}
+  .btn-ghost:hover{border-color:#3B7BF0;background:rgba(255,255,255,0.08);color:#EAF1FB}
 
-/* =========================================================
-   Buttons（pill）
-   ========================================================= */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font:700 14px/1 var(--jp);cursor:pointer;transition:.35s cubic-bezier(.2,.7,.2,1);border:1px solid transparent;white-space:nowrap}
-.btn .arw{font:600 15px/1 var(--en)}
-.btn--accent{background:var(--accent);color:#fff}
-.btn--accent:hover{background:var(--accent-hover);transform:translateY(-3px);box-shadow:0 16px 28px -12px rgba(217,106,52,.7)}
-.btn--ghost{background:transparent;color:var(--heading);border-color:rgba(33,28,23,.2)}
-.btn--ghost:hover{background:rgba(33,28,23,.05);transform:translateY(-2px)}
+  /* cards */
+  .card-light{transition:border-color .3s,box-shadow .3s}
+  .card-light:hover{border-color:#1E5CE6;box-shadow:0 14px 40px rgba(12,27,46,0.09)}
+  .card-work{transition:border-color .3s,box-shadow .3s}
+  .card-work:hover{border-color:#1E5CE6;box-shadow:0 18px 46px rgba(12,27,46,0.11)}
+  .card-glass{transition:border-color .3s,background .3s}
+  .card-glass:hover{border-color:#3B7BF0;background:rgba(255,255,255,0.07)}
 
-/* =========================================================
-   Icon chips（"高級感"の要：円形グラデ＋内側ハイライト）
-   ========================================================= */
-.chip{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
-.chip--light{background:radial-gradient(circle at 32% 26%,#FFF6EF,#F6E1D1);border:1px solid rgba(180,83,31,.16);box-shadow:inset 0 1px 2px rgba(255,255,255,.9),0 8px 18px -10px rgba(180,83,31,.38)}
-.chip--orange{background:radial-gradient(circle at 32% 26%,#F08A46,#CE5A1E);box-shadow:0 10px 22px -8px rgba(206,90,30,.6),inset 0 1px 0 rgba(255,255,255,.35)}
+  /* form fields */
+  .field{transition:border-color .2s}
+  .field:focus{border-color:#3B7BF0}
 
-/* =========================================================
-   Header + Hamburger
-   ========================================================= */
-.header{position:fixed;inset:0 0 auto 0;z-index:100;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
-.header.is-scrolled{border-bottom-color:var(--sec-border)}
-.nav{height:66px;display:flex;align-items:center;justify-content:space-between;max-width:var(--container);margin-inline:auto;padding-inline:clamp(8px,2vw,20px)}
-.brand{display:flex;align-items:center;gap:9px;font:800 20px/1 var(--jp);color:var(--heading);letter-spacing:-.01em}
-.brand-mark{width:26px;height:26px;flex:none}
-.nav-menu{display:flex;align-items:center;gap:22px}
-.nav-link{font:500 14px/1 var(--jp);color:var(--text);position:relative;transition:color .2s}
-.nav-link::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--accent);transition:width .28s}
-.nav-link:hover{color:var(--heading)}.nav-link:hover::after{width:100%}
-.nav-cta{padding:10px 20px;font-size:13px}
-.nav-toggle{display:none;width:42px;height:42px;margin-right:-8px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer}
-.nav-toggle__bar{display:block;width:22px;height:1.6px;background:var(--heading);border-radius:2px;transition:transform .3s,opacity .3s}
-.nav-toggle.is-open .nav-toggle__bar:nth-child(1){transform:translateY(3.3px) rotate(45deg)}
-.nav-toggle.is-open .nav-toggle__bar:nth-child(2){transform:translateY(-3.3px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:66px 0 0 0;z-index:90;background:var(--bg);padding:30px var(--gutter) 44px;display:flex;flex-direction:column;transform:translateY(-10px);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s}
-.mobile-menu.is-open{transform:none;opacity:1;visibility:visible}
-.m-link{display:flex;align-items:center;justify-content:space-between;font:700 20px/1 var(--jp);color:var(--heading);padding:19px 2px;border-bottom:1px solid var(--sec-border);transition:color .2s,padding .2s}
-.m-link:hover{color:var(--accent);padding-left:8px}
-.m-link .arw{color:var(--sub);font:500 14px/1 var(--en)}
-.mobile-menu__cta{margin-top:30px}
-.mobile-menu__cta .btn{width:100%;justify-content:center;padding:16px}
-.mobile-menu__contact{margin-top:24px;font:500 12px/2 var(--en);letter-spacing:.04em;color:var(--sub)}
-.mobile-menu__contact a{color:var(--text)}
-@media(max-width:900px){.nav-menu{display:none}.nav-toggle{display:flex}}
-@media(min-width:901px){.mobile-menu{display:none}}
+  /* faq accordion (progressive: works without JS) */
+  .faq-item{background:#F5F8FC;border:1px solid #E1E9F4;border-radius:14px;overflow:hidden;transition:border-color .3s}
+  .faq-item:hover{border-color:#C7D6EC}
+  .faq-summary{list-style:none;cursor:pointer;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:16px;font-weight:700;color:#0C1B2E}
+  .faq-summary::-webkit-details-marker{display:none}
+  .faq-sign{font-size:24px;color:#1E5CE6;font-weight:400;line-height:1;flex-shrink:0;width:22px;text-align:center}
+  .faq-sign::before{content:"＋"}
+  .faq-item[open] .faq-sign::before{content:"−"}
+  .faq-answer{margin:0;padding:0 26px 26px;color:#5B6B80;font-size:15px;line-height:1.95}
 
-/* =========================================================
-   Hero
-   ========================================================= */
-.hero{max-width:var(--container);margin:0 auto clamp(14px,2vw,22px);padding:150px clamp(16px,3vw,40px) clamp(70px,9vw,110px);position:relative;overflow:hidden}
-.hero__inner{position:relative;z-index:2;max-width:780px}
-.hero h1{margin:26px 0 0;font:900 clamp(40px,6.4vw,74px)/1.16 var(--jp);color:var(--heading);letter-spacing:.01em}
-.hero h1 .accent{color:var(--accent)}
-.hero .lead{margin-top:26px;max-width:520px;font-size:16px}
-.hero__cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
-.hero__swoosh{position:absolute;top:12%;right:-4%;width:min(46%,520px);z-index:1;pointer-events:none;opacity:.85}
-.hero__swoosh path{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900}
-@media(max-width:820px){.hero__swoosh{opacity:.3;width:78%;right:-12%;top:auto;bottom:2%}}
+  /* marquee */
+  .marquee-track{display:flex;width:max-content;animation:advMarquee 32s linear infinite}
+  .glow{will-change:transform}
 
-/* =========================================================
-   Issues（課題）— hifi
-   ========================================================= */
-.issue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.issue{position:relative;overflow:hidden;padding:34px 30px 32px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
-.issue:hover{transform:translateY(-8px);box-shadow:0 26px 46px -28px rgba(217,106,52,.55);border-color:rgba(217,106,52,.5)}
-.issue__n{position:absolute;top:24px;right:28px;font:700 44px/1 var(--en);color:var(--ghost);letter-spacing:-.02em}
-.issue__t{margin:30px 0 0;font:700 16.5px/1.78 var(--jp);color:var(--ink);max-width:15em}
+  /* scroll reveal — hidden only when JS is present, so no-JS shows everything */
+  .js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js [data-reveal].is-visible{opacity:1;transform:none}
 
-/* =========================================================
-   Services（サービス）— hifi
-   ========================================================= */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.svc{display:flex;flex-direction:column;padding:34px 30px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
-.svc:hover{transform:translateY(-8px);box-shadow:0 26px 46px -28px rgba(217,106,52,.5);border-color:rgba(217,106,52,.45)}
-.svc__top{display:flex;align-items:center;justify-content:space-between}
-.svc__no{font:600 11px/1 var(--en);letter-spacing:.2em;color:#BEB2A2}
-.svc__t{margin:26px 0 10px;font:800 20px/1.4 var(--jp);color:var(--heading)}
-.svc__d{margin:0 0 22px;font:400 14px/1.9 var(--jp);color:var(--text)}
-.svc__tags{margin-top:auto;padding-top:20px;border-top:1px solid rgba(33,28,23,.08);display:flex;flex-direction:column;gap:11px}
-.svc__tag{display:flex;align-items:center;gap:10px;font:500 13.5px/1.4 var(--jp);color:var(--ink-2)}
-.svc__tag svg{flex-shrink:0}
-.svc-cta{display:flex;flex-direction:column;justify-content:center;padding:38px 34px;border:1.5px dashed rgba(33,28,23,.24);border-radius:var(--radius-card);background:linear-gradient(160deg,#FCF3EC,#F6F0E7)}
-.svc-cta h4{margin:0 0 12px;font:900 21px/1.45 var(--jp);color:var(--heading)}
-.svc-cta p{margin:0 0 24px;font:400 13.5px/1.9 var(--jp);color:var(--text)}
+  /* mobile menu overlay */
+  .nav-overlay{display:none;position:fixed;inset:0;z-index:90;background:#0A1A30;flex-direction:column;padding:24px clamp(20px,6vw,40px)}
+  .nav-overlay.open{display:flex}
+  body.no-scroll{overflow:hidden}
 
-@media(max-width:860px){.issue-grid,.svc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.issue-grid,.svc-grid{grid-template-columns:1fr}}
-
-/* =========================================================
-   Why（選ばれる理由）
-   ========================================================= */
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.why{display:flex;gap:22px;align-items:flex-start;padding:34px 32px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
-.why:hover{transform:translateY(-8px);box-shadow:0 26px 46px -28px rgba(217,106,52,.5);border-color:rgba(217,106,52,.45)}
-.why__no{font:600 11px/1 var(--en);letter-spacing:.2em;color:var(--accent)}
-.why__t{margin:9px 0 2px;font:800 18px/1.5 var(--jp);color:var(--heading)}
-.why__en{font:600 10.5px/1 var(--en);letter-spacing:.14em;text-transform:uppercase;color:var(--sub-2)}
-.why__d{margin-top:12px;font:400 14px/1.9 var(--jp);color:var(--text)}
-@media(max-width:700px){.why-grid{grid-template-columns:1fr}.why{padding:28px 26px;gap:18px}}
-
-/* =========================================================
-   Numbers
-   ========================================================= */
-.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.num{text-align:center;padding:14px 8px}
-.num__v{font:700 clamp(40px,6vw,58px)/1 var(--en);color:var(--heading);letter-spacing:-.03em}
-.num__v .unit{font:700 .4em/1 var(--jp);color:var(--accent);margin-left:4px;letter-spacing:0}
-.num__l{margin-top:14px;font:500 13px/1.7 var(--jp);color:var(--text)}
-@media(max-width:640px){.numbers{grid-template-columns:1fr 1fr;gap:26px 18px}}
-
-/* =========================================================
-   Works
-   ========================================================= */
-.works{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);overflow:hidden}
-.works__body{padding:clamp(30px,5vw,50px);display:flex;flex-direction:column;justify-content:center}
-.works__tag{font:600 11px/1 var(--en);letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
-.works__body h3{margin:14px 0 0;font:900 clamp(22px,3vw,30px)/1.35 var(--jp);color:var(--heading)}
-.works__body p{margin:16px 0 0;font:400 14.5px/1.9 var(--jp);color:var(--text);max-width:420px}
-.works__actions{margin-top:28px}
-.works__visual{background:linear-gradient(150deg,#F1E8DC,#FBF6EE);border-left:1px solid var(--card-border);min-height:300px;display:grid;place-items:center;padding:30px}
-.mini-lp{width:74%;max-width:250px;background:#fff;border:1px solid var(--card-border);border-radius:12px;box-shadow:0 26px 46px -28px rgba(217,106,52,.4);padding:18px;transform:rotate(-3deg)}
-.mini-lp__bar{height:7px;border-radius:4px;background:rgba(33,28,23,.12)}
-.mini-lp__bar.accent{background:var(--accent);width:44%}
-.mini-lp__bar.w70{width:70%}.mini-lp__bar.w90{width:90%}
-.mini-lp__stack{margin-top:12px;display:flex;flex-direction:column;gap:8px}
-.mini-lp__btn{margin-top:14px;height:24px;border-radius:100px;background:var(--heading);width:52%}
-@media(max-width:760px){.works{grid-template-columns:1fr}.works__visual{border-left:none;border-top:1px solid var(--card-border);min-height:230px}}
-
-/* =========================================================
-   Process
-   ========================================================= */
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.flow-step{position:relative;padding:28px 22px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .5s}
-.flow-step:hover{transform:translateY(-6px);border-color:rgba(217,106,52,.45)}
-.flow-step:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:34px;font:600 15px/1 var(--en);color:var(--sub-2);z-index:2}
-.flow-step__no{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 32% 26%,#FFF6EF,#F6E1D1);border:1px solid rgba(180,83,31,.16);box-shadow:inset 0 1px 2px rgba(255,255,255,.9);color:var(--accent);display:grid;place-items:center;font:700 14px/1 var(--en);margin-bottom:16px}
-.flow-step h3{font:800 15.5px/1.5 var(--jp);color:var(--heading)}
-.flow-step p{margin-top:9px;font:400 13px/1.8 var(--jp);color:var(--text)}
-@media(max-width:900px){.flow{grid-template-columns:1fr 1fr}.flow-step:not(:last-child)::after{display:none}}
-@media(max-width:520px){.flow{grid-template-columns:1fr}}
-
-/* =========================================================
-   Company
-   ========================================================= */
-.company{border-top:1px solid var(--card-border);max-width:840px}
-.company__row{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--card-border);align-items:baseline}
-.company dt{font:600 13px/1.6 var(--en);letter-spacing:.04em;color:var(--heading);position:relative;padding-left:17px}
-.company dt::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.company dd{font:400 15px/1.8 var(--jp);color:var(--ink)}
-.company__sub{display:block;font:400 13px/1.7 var(--jp);color:var(--sub);margin-top:4px}
-@media(max-width:600px){.company__row{grid-template-columns:1fr;gap:6px;padding:20px 0}}
-
-/* =========================================================
-   FAQ
-   ========================================================= */
-.faq{border-top:1px solid var(--card-border);max-width:860px}
-.faq details{border-bottom:1px solid var(--card-border)}
-.faq summary{list-style:none;cursor:pointer;padding:24px 46px 24px 0;position:relative;font:700 16px/1.6 var(--jp);color:var(--heading);transition:color .2s}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--accent)}
-.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;background:linear-gradient(var(--sub),var(--sub)) center/12px 1.5px no-repeat,linear-gradient(var(--sub),var(--sub)) center/1.5px 12px no-repeat;transform:translateY(-50%);transition:transform .3s}
-.faq details[open] summary::after{transform:translateY(-50%) rotate(135deg)}
-.faq details[open] summary{color:var(--accent)}
-.faq__a{padding:0 46px 26px 0;font:400 14.5px/1.9 var(--jp);color:var(--text);max-width:720px}
-
-/* =========================================================
-   Contact
-   ========================================================= */
-.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,64px);align-items:start}
-.contact-lead h2{margin:18px 0 0;font:900 clamp(26px,3.6vw,40px)/1.25 var(--jp);color:var(--heading);letter-spacing:.01em}
-.channels{margin-top:32px;display:flex;flex-direction:column;gap:10px}
-.channel{display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--card);border:1px solid var(--card-border);border-radius:14px;transition:border-color .25s,transform .25s,box-shadow .25s}
-.channel:hover{border-color:rgba(217,106,52,.5);transform:translateX(4px);box-shadow:0 16px 30px -22px rgba(217,106,52,.55)}
-.channel__chip{width:42px;height:42px;border-radius:12px;background:radial-gradient(circle at 32% 26%,#FFF6EF,#F6E1D1);border:1px solid rgba(180,83,31,.16);display:grid;place-items:center;flex:none}
-.channel__t{font:700 14.5px/1.4 var(--jp);color:var(--heading)}
-.channel__d{font:400 12.5px/1.5 var(--jp);color:var(--text);margin-top:2px}
-.channel__arw{margin-left:auto;color:var(--sub);font:500 15px/1 var(--en);transition:transform .25s,color .25s}
-.channel:hover .channel__arw{transform:translateX(3px);color:var(--accent)}
-.form{display:flex;flex-direction:column;gap:16px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-card);padding:clamp(26px,4vw,36px)}
-.field{display:flex;flex-direction:column;gap:8px}
-.field label{font:600 11px/1 var(--en);letter-spacing:.08em;text-transform:uppercase;color:var(--sub)}
-.field label .req{color:var(--accent)}
-.field input,.field textarea{font-family:var(--jp);font-size:15px;color:var(--heading);background:var(--panel-b);padding:13px 15px;border:1px solid var(--card-border);border-radius:12px;transition:border-color .2s,box-shadow .2s,background .2s}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(217,106,52,.14)}
-.field textarea{resize:vertical;min-height:120px}
-.form .btn{justify-content:center;padding:15px}
-.form__note{font:400 11px/1.7 var(--jp);color:var(--sub)}
-.form__msg{font:500 14px/1.7 var(--jp);padding:13px 15px;border-radius:12px;display:none}
-.form__msg.ok,.form__msg.err{display:block;background:#FCEBE0;color:var(--accent-hover)}
-@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:36px}}
-
-/* =========================================================
-   Footer
-   ========================================================= */
-.footer{max-width:var(--container);margin:clamp(14px,2vw,22px) auto 24px;padding:56px var(--panel-pad) 40px;background:var(--panel-a);border:1px solid var(--sec-border);border-radius:var(--radius-panel)}
-.footer__top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
-.footer__brand{display:flex;align-items:center;gap:11px;font:800 24px/1 var(--jp);color:var(--heading);letter-spacing:-.01em}
-.footer__brand .brand-mark{width:32px;height:32px}
-.footer__desc{margin-top:16px;font:400 13.5px/1.85 var(--jp);color:var(--text);max-width:300px}
-.footer__info{font:500 12.5px/2.2 var(--en);letter-spacing:.02em;color:var(--text)}
-.footer__info b{color:var(--heading);font-weight:600}
-.footer__info .jp{font-family:var(--jp)}
-.footer__bottom{margin-top:44px;padding-top:22px;border-top:1px solid var(--sec-border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font:500 11px/1.6 var(--en);letter-spacing:.05em;color:var(--sub)}
-
-/* =========================================================
-   Reveal（.75s / stagger / threshold .12）
-   ========================================================= */
-[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
-[data-reveal].is-in{opacity:1;transform:none}
-
-@media (prefers-reduced-motion: reduce){
-  *{animation:none!important;transition-duration:.01ms!important}
-  [data-reveal]{opacity:1;transform:none}
-  .hero__swoosh path{stroke-dashoffset:0}
-  html{scroll-behavior:auto}
-}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .js [data-reveal]{opacity:1 !important;transform:none !important;transition:none}
+    .marquee-track,.glow{animation:none !important}
+  }
 </style>
 </head>
 <body>
 
-<!-- ============================== HEADER ============================== -->
-<header class="header" id="header">
-  <nav class="nav">
-    <a href="#top" class="brand" aria-label="Advans ホーム">
-      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
-        <defs><linearGradient id="mkH" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#CE5A1E"/><stop offset="1" stop-color="#F08A46"/></linearGradient></defs>
-        <path fill="#211C17" fill-rule="evenodd" d="M50,9L90,91L67,91L50,57L33,91L10,91ZM50,31L41,54L59,54Z"/>
-        <path fill="url(#mkH)" d="M15,72C42,66,68,57,89,29C91,26,93,26,92,29C91,33,88,37,83,41C63,58,43,66,22,75C18,77,13,76,15,72Z"/>
-      </svg>
-      <span>Advans</span>
-    </a>
-    <div class="nav-menu">
-      <a href="#issues" class="nav-link">課題</a>
-      <a href="#services" class="nav-link">サービス</a>
-      <a href="#why" class="nav-link">選ばれる理由</a>
-      <a href="#works" class="nav-link">実績</a>
-      <a href="#company" class="nav-link">会社概要</a>
-      <a href="#contact" class="btn btn--accent nav-cta">無料相談 <span class="arw">→</span></a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
-      <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
-    </button>
-  </nav>
-</header>
+  <!-- ================= HEADER ================= -->
+  <header style="position:sticky;top:0;z-index:80;background:rgba(10,26,48,0.72);backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,44px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="color:#EAF1FB;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:23px;letter-spacing:.02em;display:flex;align-items:center;gap:10px">
+        <span style="width:10px;height:10px;background:#1E5CE6;border-radius:50%;display:inline-block;box-shadow:0 0 14px #1E5CE6"></span>Advans
+      </a>
 
-<!-- ============================== MOBILE MENU ============================== -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <nav aria-label="モバイルナビゲーション">
-    <a href="#issues" class="m-link">課題 <span class="arw">01</span></a>
-    <a href="#services" class="m-link">サービス <span class="arw">02</span></a>
-    <a href="#why" class="m-link">選ばれる理由 <span class="arw">03</span></a>
-    <a href="#works" class="m-link">実績 <span class="arw">04</span></a>
-    <a href="#process" class="m-link">制作の流れ <span class="arw">05</span></a>
-    <a href="#company" class="m-link">会社概要 <span class="arw">06</span></a>
-    <a href="#faq" class="m-link">FAQ <span class="arw">07</span></a>
-  </nav>
-  <div class="mobile-menu__cta"><a href="#contact" class="btn btn--accent">無料で相談する <span class="arw">→</span></a></div>
-  <div class="mobile-menu__contact">MAIL &nbsp;<a href="mailto:xiaokoulu@gmail.com">xiaokoulu@gmail.com</a></div>
-</div>
+      <nav class="desktop-nav">
+        <a class="nav-link" href="#issues">課題</a>
+        <a class="nav-link" href="#services">サービス</a>
+        <a class="nav-link" href="#why">選ばれる理由</a>
+        <a class="nav-link" href="#works">実績</a>
+        <a class="nav-link" href="#process">制作の流れ</a>
+        <a class="nav-link" href="#company">会社概要</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="btn-nav" href="#contact">無料で相談する →</a>
+      </nav>
 
-<main id="top">
+      <button class="menu-btn" id="menuOpen" aria-label="メニューを開く" aria-controls="navOverlay" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<!-- ============================== HERO ============================== -->
-<section class="hero">
-  <svg class="hero__swoosh" viewBox="0 0 520 360" aria-hidden="true"><path d="M20,300 C170,270 330,220 490,60"/></svg>
-  <div class="hero__inner">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">Digital Marketing Studio</span>
-      <span class="eyebrow-jp">Web制作・集客支援</span>
+  <!-- mobile overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:48px">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:23px;letter-spacing:.02em;color:#EAF1FB">Advans</span>
+      <button id="menuClose" aria-label="メニューを閉じる" style="background:none;border:none;font-size:32px;line-height:1;cursor:pointer;color:#EAF1FB">×</button>
     </div>
-    <h1 data-reveal data-delay="70">企業を、<br>一歩前へ<span class="accent">。</span></h1>
-    <p class="lead" data-reveal data-delay="130">LP・広告・SNS・AIまで。Advansは、集客に関わる領域を一貫して支援するデジタルスタジオです。つくって終わりにせず、事業が次の一歩を踏み出すための&ldquo;成果&rdquo;から逆算します。</p>
-    <div class="hero__cta" data-reveal data-delay="190">
-      <a href="#contact" class="btn btn--accent">無料で相談する <span class="arw">→</span></a>
-      <a href="#services" class="btn btn--ghost">サービスを見る</a>
-    </div>
+    <nav style="display:flex;flex-direction:column;gap:2px;margin-top:32px">
+      <a href="#issues" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">01</span>課題</a>
+      <a href="#services" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">02</span>サービス</a>
+      <a href="#why" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">03</span>選ばれる理由</a>
+      <a href="#works" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">04</span>実績</a>
+      <a href="#process" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">05</span>制作の流れ</a>
+      <a href="#company" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">06</span>会社概要</a>
+      <a href="#faq" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #1E3556;color:#EAF1FB;font-size:21px;font-weight:700"><span style="font-family:'Space Grotesk',monospace;font-size:13px;color:#3B7BF0;letter-spacing:.1em">07</span>FAQ</a>
+    </nav>
+    <a href="#contact" style="margin-top:auto;text-align:center;background:#1E5CE6;color:#FFFFFF;padding:17px;border-radius:10px;font-size:16px;font-weight:700">無料で相談する →</a>
   </div>
-</section>
 
-<!-- ============================== ISSUES（課題）hifi ============================== -->
-<section class="panel panel--a" id="issues">
-  <div class="eyebrow-row" data-reveal data-delay="0">
-    <span class="eyebrow-rule"></span>
-    <span class="eyebrow-en">Common Issues</span>
-    <span class="eyebrow-jp">よくあるお悩み</span>
-  </div>
-  <h3 class="h-sec" data-reveal data-delay="70">こんな&quot;詰まり&quot;、感じていませんか。</h3>
-  <p class="lead" data-reveal data-delay="130" style="margin-bottom:44px">一つでも当てはまるなら、それは伸びしろのサイン。Advansが原因を切り分け、順番に整えていきます。</p>
-  <div class="issue-grid">
+  <!-- ================= HERO ================= -->
+  <section id="top" style="position:relative;background:#0A1A30;color:#EAF1FB;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 40%,transparent 100%)"></div>
+    <div class="glow" aria-hidden="true" style="position:absolute;top:-120px;right:-80px;width:440px;height:440px;background:radial-gradient(circle,rgba(30,92,230,0.5),transparent 68%);filter:blur(20px);animation:advFloat 9s ease-in-out infinite"></div>
+    <div class="glow" aria-hidden="true" style="position:absolute;bottom:-160px;left:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(59,123,240,0.28),transparent 70%);filter:blur(24px);animation:advFloat 11s ease-in-out infinite reverse"></div>
+    <div aria-hidden="true" style="position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:min(30vw,420px);letter-spacing:-.03em;color:rgba(255,255,255,0.035);white-space:nowrap;pointer-events:none">Advans</div>
 
-    <div class="issue" data-reveal data-delay="0">
-      <span class="issue__n">01</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M7 3.4h6.5L18 8V20.6H7z" fill="#D96A34" fill-opacity=".16"/><path d="M7 3.4h6.5L18 8V20.6H7z" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 3.4V8H18" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.7 12.4h4.6" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round"/><path d="M9.7 15.4h4.6" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <p class="issue__t">ホームページが古い・そもそも無く、会社として信頼されにくい</p>
-    </div>
-
-    <div class="issue" data-reveal data-delay="90">
-      <span class="issue__n">02</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M4.2 16.6l4.6-4.6 3 3L18.5 7.8v8.8z" fill="#D96A34" fill-opacity=".16"/><path d="M4.2 15.6l4.6-4.6 3 3 6.7-6.6" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.9 7.4h3.6V11" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.8" cy="11" r=".6" fill="#D96A34"/><circle cx="11.8" cy="14" r=".6" fill="#D96A34"/></svg></div>
-      <p class="issue__t">サイトはあるのに、問い合わせや申込につながらない</p>
-    </div>
-
-    <div class="issue" data-reveal data-delay="180">
-      <span class="issue__n">03</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" fill="#D96A34" fill-opacity=".16"/><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.5"/><path d="M12 7.6v4.6l3.1 1.8" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r=".7" fill="#D96A34"/></svg></div>
-      <p class="issue__t">広告にお金をかけても、成果が出ているのか分からない</p>
-    </div>
-
-    <div class="issue" data-reveal data-delay="270">
-      <span class="issue__n">04</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" fill="#D96A34" fill-opacity=".16"/><path d="M6 9.4A7 7 0 0 1 18.4 10" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 4.6V10h-5.4" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14.6A7 7 0 0 1 5.6 14" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 19.4V14h5.4" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <p class="issue__t">SNSを始めたけれど続かず、集客につながっていない</p>
-    </div>
-
-    <div class="issue" data-reveal data-delay="360">
-      <span class="issue__n">05</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M12 2.2l1.95 6.05 6.05 1.85-6.05 1.9L12 18.1l-1.95-6.1L4 10.1l6.05-1.85z" fill="#D96A34" fill-opacity=".18"/><path d="M12 2.2l1.95 6.05 6.05 1.85-6.05 1.9L12 18.1l-1.95-6.1L4 10.1l6.05-1.85z" fill="none" stroke="#D96A34" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-      <p class="issue__t">AIを活用したいが、何から始めればいいか分からない</p>
-    </div>
-
-    <div class="issue" data-reveal data-delay="450">
-      <span class="issue__n">06</span>
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" fill="#D96A34" fill-opacity=".16"/><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.5"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 1c0 1.9-2.6 2-2.6 3.8" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="17.4" r=".75" fill="#D96A34"/></svg></div>
-      <p class="issue__t">相談先が多すぎて、そもそも何から手をつけるべきか迷う</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================== SERVICES（サービス）hifi ============================== -->
-<section class="panel panel--b" id="services">
-  <div class="eyebrow-row" data-reveal data-delay="0">
-    <span class="eyebrow-rule"></span>
-    <span class="eyebrow-en">Services</span>
-    <span class="eyebrow-jp">できること</span>
-  </div>
-  <h3 class="h-sec" data-reveal data-delay="70">必要なところから、まとめて任せる。</h3>
-  <p class="lead" data-reveal data-delay="130" style="margin-bottom:44px">単発でも、丸ごとでも。事業のフェーズに合わせて、最適な組み合わせを設計します。</p>
-  <div class="svc-grid">
-
-    <div class="svc" data-reveal data-delay="0">
-      <div class="svc__top">
-        <div class="chip chip--orange"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M7 3.4h6.5L18 8V20.6H7z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 3.4V8H18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.7 12.4h4.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M9.7 15.4h4.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-        <span class="svc__no">S / 01</span>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(72px,12vw,150px) clamp(20px,5vw,44px) clamp(88px,11vw,132px)">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(28px,5vw,44px)">
+        <span style="width:36px;height:1px;background:#3B7BF0"></span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:#3B7BF0;font-weight:600">Digital Marketing Studio</span>
+        <span style="font-size:13px;color:#8FA3BE;letter-spacing:.06em">Web制作・集客支援</span>
       </div>
-      <h4 class="svc__t">LP制作</h4>
-      <p class="svc__d">広告や紹介の受け皿として、行動につながる一枚を。構成から設計します。</p>
-      <div class="svc__tags">
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>訴求・構成の設計</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>デザイン・コーディング</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>CTA・問い合わせ導線</div>
+      <h1 data-reveal style="transition-delay:80ms;font-size:clamp(46px,9vw,108px);font-weight:900;line-height:1.04;letter-spacing:.005em;color:#FFFFFF">企業を、<br>一歩前へ。</h1>
+      <p data-reveal style="transition-delay:160ms;max-width:640px;margin:clamp(26px,4vw,38px) 0 0;font-size:clamp(15px,1.7vw,18px);color:#B8C6DB;line-height:2.05">LP・広告・SNS・AIまで。Advansは、集客に関わる領域を一貫して支援するデジタルスタジオです。つくって終わりにせず、事業が次の一歩を踏み出すための“成果”から逆算します。</p>
+      <div data-reveal style="transition-delay:240ms;display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(34px,5vw,46px)">
+        <a class="btn-primary" href="#contact" style="background:#1E5CE6;color:#FFFFFF;padding:17px 34px;border-radius:10px;font-size:16px;font-weight:700;letter-spacing:.02em;box-shadow:0 14px 34px rgba(30,92,230,0.45)">無料で相談する →</a>
+        <a class="btn-ghost" href="#services" style="background:rgba(255,255,255,0.04);color:#EAF1FB;padding:17px 34px;border-radius:10px;font-size:16px;font-weight:700;border:1px solid rgba(255,255,255,0.16)">サービスを見る</a>
+      </div>
+      <div data-reveal style="transition-delay:320ms;display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:clamp(32px,4vw,42px);font-size:13px;color:#8FA3BE">
+        <span>✓ 初回相談無料</span><span>✓ 全国オンライン対応</span><span>✓ 無理な提案はしません</span>
       </div>
     </div>
 
-    <div class="svc" data-reveal data-delay="90">
-      <div class="svc__top">
-        <div class="chip chip--orange"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><rect x="4" y="5.4" width="16" height="13.2" rx="1.6" stroke="#fff" stroke-width="1.6"/><path d="M4 9.4h16" stroke="#fff" stroke-width="1.6"/><circle cx="6.5" cy="7.4" r=".55" fill="#fff"/><circle cx="8.6" cy="7.4" r=".55" fill="#fff"/></svg></div>
-        <span class="svc__no">S / 02</span>
-      </div>
-      <h4 class="svc__t">ホームページ制作</h4>
-      <p class="svc__d">会社の信頼を伝え、営業が動きやすくなる土台をつくります。</p>
-      <div class="svc__tags">
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>コーポレートサイト</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>スマホ最適化・高速表示</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>SEOの基礎設計</div>
-      </div>
-    </div>
-
-    <div class="svc" data-reveal data-delay="180">
-      <div class="svc__top">
-        <div class="chip chip--orange"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="3.8" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r=".8" fill="#fff"/></svg></div>
-        <span class="svc__no">S / 03</span>
-      </div>
-      <h4 class="svc__t">広告運用</h4>
-      <p class="svc__d">届けたい相手に無駄なく届け、費用対効果を継続的に改善します。</p>
-      <div class="svc__tags">
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Meta / Google 広告</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>クリエイティブ制作</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>計測・改善サイクル</div>
+    <!-- marquee -->
+    <div style="position:relative;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);overflow:hidden;padding:16px 0;background:rgba(255,255,255,0.02)">
+      <div class="marquee-track" aria-hidden="true">
+        <!-- list is duplicated once for a seamless loop -->
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">LP制作<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">ホームページ制作<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">広告運用<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">SNSマーケティング<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">AI活用支援<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">成果から逆算<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">LP制作<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">ホームページ制作<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">広告運用<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">SNSマーケティング<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">AI活用支援<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
+        <span style="display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8FA3BE;white-space:nowrap">成果から逆算<span style="width:6px;height:6px;background:#1E5CE6;border-radius:50%"></span></span>
       </div>
     </div>
+  </section>
 
-    <div class="svc" data-reveal data-delay="270">
-      <div class="svc__top">
-        <div class="chip chip--orange"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="6.4" cy="12" r="2.5" stroke="#fff" stroke-width="1.6"/><circle cx="17.6" cy="6.5" r="2.5" stroke="#fff" stroke-width="1.6"/><circle cx="17.6" cy="17.5" r="2.5" stroke="#fff" stroke-width="1.6"/><path d="M8.7 10.9L15.3 7.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M8.7 13.1L15.3 16.4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-        <span class="svc__no">S / 04</span>
+  <!-- ================= 01 ISSUES ================= -->
+  <section id="issues" style="background:#F5F8FC">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">01</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">Common Issues</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">よくあるお悩み</span>
       </div>
-      <h4 class="svc__t">SNSマーケティング</h4>
-      <p class="svc__d">継続的な接点をつくり、ブランドと見込み客を育てていきます。</p>
-      <div class="svc__tags">
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Instagram / X 運用</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>投稿設計・運用代行</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>LINE構築・配信</div>
-      </div>
-    </div>
-
-    <div class="svc" data-reveal data-delay="360">
-      <div class="svc__top">
-        <div class="chip chip--orange"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M12 2.2l1.95 6.05 6.05 1.85-6.05 1.9L12 18.1l-1.95-6.1L4 10.1l6.05-1.85z" fill="#fff"/></svg></div>
-        <span class="svc__no">S / 05</span>
-      </div>
-      <h4 class="svc__t">AI活用支援</h4>
-      <p class="svc__d">AIを使い、集客と運用の効率を実務で使える形に引き上げます。</p>
-      <div class="svc__tags">
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>コンテンツ生成の仕組み化</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>業務の自動化</div>
-        <div class="svc__tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.3" stroke="#D96A34" stroke-width="1.6"/><path d="M8.3 12.1l2.5 2.5 4.7-5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>ツール導入の伴走</div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 16px;color:#0C1B2E">こんな“詰まり”、感じていませんか。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:580px;margin:0 0 clamp(40px,5vw,60px);color:#5B6B80;font-size:15px">一つでも当てはまるなら、それは伸びしろのサイン。Advansが原因を切り分け、順番に整えていきます。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">01</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">ホームページが古い・そもそも無く、会社として信頼されにくい</p></div>
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">02</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">サイトはあるのに、問い合わせや申込につながらない</p></div>
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">03</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">広告にお金をかけても、成果が出ているのか分からない</p></div>
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">04</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">SNSを始めたけれど続かず、集客につながっていない</p></div>
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">05</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">AIを活用したいが、何から始めればいいか分からない</p></div>
+        <div class="card-light" data-reveal style="background:#FFFFFF;border:1px solid #E1E9F4;border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;gap:18px"><span style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:.02em;color:#C7D6EC;font-weight:700;line-height:1">06</span><p style="font-size:16px;font-weight:500;line-height:1.85;color:#22344A">相談先が多すぎて、そもそも何から手をつけるべきか迷う</p></div>
       </div>
     </div>
+  </section>
 
-    <div class="svc-cta" data-reveal data-delay="450">
-      <h4>迷ったら、まず相談から。</h4>
-      <p>どれが必要か分からなくても大丈夫。目的を伺い、最適な組み合わせを一緒に設計します。</p>
-      <a href="#contact" class="btn btn--accent" style="align-self:flex-start">無料相談へ <span class="arw">→</span></a>
-    </div>
+  <!-- ================= 02 SERVICES ================= -->
+  <section id="services" style="background:#FFFFFF;border-top:1px solid #E7EEF7">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">02</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">Services</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">できること</span>
+      </div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 16px;color:#0C1B2E">必要なところから、まとめて任せる。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:580px;margin:0 0 clamp(40px,5vw,60px);color:#5B6B80;font-size:15px">単発でも、丸ごとでも。事業のフェーズに合わせて、最適な組み合わせを設計します。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px">
 
-  </div>
-</section>
+        <div class="card-light" data-reveal style="background:#F5F8FC;border:1px solid #E1E9F4;border-radius:18px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#1E5CE6,#3B7BF0)"></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:#1E5CE6;font-weight:700">S / 01</span>
+          <h3 style="font-size:23px;font-weight:900;margin:16px 0 12px;color:#0C1B2E">LP制作</h3>
+          <p style="margin:0 0 24px;color:#5B6B80;font-size:15px;line-height:1.9">広告や紹介の受け皿として、行動につながる一枚を。構成から設計します。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">訴求・構成の設計</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">デザイン・コーディング</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">CTA・問い合わせ導線</span>
+          </div>
+        </div>
 
-<!-- ============================== WHY（選ばれる理由） ============================== -->
-<section class="panel panel--a" id="why">
-  <div class="sec-head">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">Why Advans</span>
-      <span class="eyebrow-jp">選ばれる理由</span>
-    </div>
-    <h3 class="h-sec" data-reveal data-delay="70">派手さより、事業に効くこと。</h3>
-    <p class="lead" data-reveal data-delay="130">Advansが大切にしている、4つの姿勢です。</p>
-  </div>
-  <div class="why-grid">
-    <div class="why" data-reveal data-delay="0">
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#D96A34" fill-opacity=".16"/><circle cx="12" cy="12" r="8" stroke="#D96A34" stroke-width="1.5"/><circle cx="12" cy="12" r="3.8" stroke="#D96A34" stroke-width="1.5"/><circle cx="12" cy="12" r=".8" fill="#D96A34"/></svg></div>
-      <div><div class="why__no">01</div><h3 class="why__t">成果から逆算する</h3><div class="why__en">Outcome-driven</div><p class="why__d">「誰に・何を届け・どう動いてほしいか」を決めてから作る。デザインは目的を果たす手段と考えます。</p></div>
-    </div>
-    <div class="why" data-reveal data-delay="90">
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M4.2 16.6l4.6-4.6 3 3L18.5 7.8v8.8z" fill="#D96A34" fill-opacity=".16"/><path d="M4.2 15.6l4.6-4.6 3 3 6.7-6.6" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.9 7.4h3.6V11" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="why__no">02</div><h3 class="why__t">作って終わりにしない</h3><div class="why__en">Beyond launch</div><p class="why__d">公開はスタート地点。数字を見ながら、成果が出る状態まで伴走します。</p></div>
-    </div>
-    <div class="why" data-reveal data-delay="180">
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M12 2.2l1.95 6.05 6.05 1.85-6.05 1.9L12 18.1l-1.95-6.1L4 10.1l6.05-1.85z" fill="#D96A34" fill-opacity=".18"/><path d="M12 2.2l1.95 6.05 6.05 1.85-6.05 1.9L12 18.1l-1.95-6.1L4 10.1l6.05-1.85z" fill="none" stroke="#D96A34" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-      <div><div class="why__no">03</div><h3 class="why__t">速く、直接やり取り</h3><div class="why__en">Fast &amp; direct</div><p class="why__d">間に人を挟まない分、意思決定が速い。言ったことが翌日には形になる進め方です。</p></div>
-    </div>
-    <div class="why" data-reveal data-delay="270">
-      <div class="chip chip--light"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><circle cx="6.4" cy="12" r="2.5" fill="#D96A34" fill-opacity=".16"/><circle cx="17.6" cy="6.5" r="2.5" fill="#D96A34" fill-opacity=".16"/><circle cx="17.6" cy="17.5" r="2.5" fill="#D96A34" fill-opacity=".16"/><circle cx="6.4" cy="12" r="2.5" stroke="#D96A34" stroke-width="1.5"/><circle cx="17.6" cy="6.5" r="2.5" stroke="#D96A34" stroke-width="1.5"/><circle cx="17.6" cy="17.5" r="2.5" stroke="#D96A34" stroke-width="1.5"/><path d="M8.7 10.9L15.3 7.6" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round"/><path d="M8.7 13.1L15.3 16.4" stroke="#D96A34" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div><div class="why__no">04</div><h3 class="why__t">集客を一気通貫で</h3><div class="why__en">End-to-end</div><p class="why__d">LP・広告・SNS・AIまで横断して見られるから、施策が一本の戦略として機能します。</p></div>
-    </div>
-  </div>
-</section>
+        <div class="card-light" data-reveal style="background:#F5F8FC;border:1px solid #E1E9F4;border-radius:18px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#1E5CE6,#3B7BF0)"></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:#1E5CE6;font-weight:700">S / 02</span>
+          <h3 style="font-size:23px;font-weight:900;margin:16px 0 12px;color:#0C1B2E">ホームページ制作</h3>
+          <p style="margin:0 0 24px;color:#5B6B80;font-size:15px;line-height:1.9">会社の信頼を伝え、営業が動きやすくなる土台をつくります。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">コーポレートサイト</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">スマホ最適化・高速表示</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">SEOの基礎設計</span>
+          </div>
+        </div>
 
-<!-- ============================== NUMBERS ============================== -->
-<section class="panel panel--b">
-  <div class="numbers">
-    <div class="num" data-reveal data-delay="0"><div class="num__v"><span class="count" data-to="5">0</span></div><div class="num__l">の領域を<br>ワンストップで</div></div>
-    <div class="num" data-reveal data-delay="90"><div class="num__v"><span class="count" data-to="47">0</span><span class="unit">都道府県</span></div><div class="num__l">全国オンラインで<br>対応</div></div>
-    <div class="num" data-reveal data-delay="180"><div class="num__v"><span class="count" data-to="0">0</span><span class="unit">円</span></div><div class="num__l">初回のご相談は<br>無料</div></div>
-    <div class="num" data-reveal data-delay="270"><div class="num__v"><span class="count" data-to="1">0</span><span class="unit">窓口</span></div><div class="num__l">相談から運用まで<br>一気通貫</div></div>
-  </div>
-</section>
+        <div class="card-light" data-reveal style="background:#F5F8FC;border:1px solid #E1E9F4;border-radius:18px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#1E5CE6,#3B7BF0)"></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:#1E5CE6;font-weight:700">S / 03</span>
+          <h3 style="font-size:23px;font-weight:900;margin:16px 0 12px;color:#0C1B2E">広告運用</h3>
+          <p style="margin:0 0 24px;color:#5B6B80;font-size:15px;line-height:1.9">届けたい相手に無駄なく届け、費用対効果を継続的に改善します。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">Meta / Google 広告</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">クリエイティブ制作</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">計測・改善サイクル</span>
+          </div>
+        </div>
 
-<!-- ============================== WORKS ============================== -->
-<section class="panel panel--a" id="works">
-  <div class="sec-head">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">Works</span>
-      <span class="eyebrow-jp">制作実績</span>
-    </div>
-    <h3 class="h-sec" data-reveal data-delay="70">仕上がりは、実物で。</h3>
-    <p class="lead" data-reveal data-delay="130">実際に制作したLPの事例を公開しています。デザインや構成の作り込みは、実物を見ていただくのが一番です。</p>
-  </div>
-  <div class="works" data-reveal data-delay="0">
-    <div class="works__body">
-      <span class="works__tag">Landing Page</span>
-      <h3>LP制作の事例を見る</h3>
-      <p>Instagramでも紹介しているランディングページの実例です。訴求・構成・デザインの質感を、実物でご確認ください。</p>
-      <div class="works__actions">
-        <a href="https://lp-sample-three.vercel.app/?utm_source=advans_hp&utm_medium=referral&utm_content=works" target="_blank" rel="noopener" class="btn btn--accent">LP事例を見る <span class="arw">↗</span></a>
+        <div class="card-light" data-reveal style="background:#F5F8FC;border:1px solid #E1E9F4;border-radius:18px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#1E5CE6,#3B7BF0)"></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:#1E5CE6;font-weight:700">S / 04</span>
+          <h3 style="font-size:23px;font-weight:900;margin:16px 0 12px;color:#0C1B2E">SNSマーケティング</h3>
+          <p style="margin:0 0 24px;color:#5B6B80;font-size:15px;line-height:1.9">継続的な接点をつくり、ブランドと見込み客を育てていきます。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">Instagram / X 運用</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">投稿設計・運用代行</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">LINE構築・配信</span>
+          </div>
+        </div>
+
+        <div class="card-light" data-reveal style="background:#F5F8FC;border:1px solid #E1E9F4;border-radius:18px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#1E5CE6,#3B7BF0)"></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:#1E5CE6;font-weight:700">S / 05</span>
+          <h3 style="font-size:23px;font-weight:900;margin:16px 0 12px;color:#0C1B2E">AI活用支援</h3>
+          <p style="margin:0 0 24px;color:#5B6B80;font-size:15px;line-height:1.9">AIを使い、集客と運用の効率を実務で使える形に引き上げます。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">コンテンツ生成の仕組み化</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">業務の自動化</span>
+            <span style="font-size:12.5px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:6px 14px">ツール導入の伴走</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div data-reveal style="margin-top:24px;background:#0A1A30;border-radius:20px;padding:clamp(34px,5vw,52px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden">
+        <div aria-hidden="true" style="position:absolute;top:-80px;right:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(30,92,230,0.4),transparent 70%);filter:blur(16px)"></div>
+        <div style="position:relative">
+          <h3 style="margin:0 0 8px;color:#FFFFFF;font-size:clamp(21px,2.6vw,28px);font-weight:900">迷ったら、まず相談から。</h3>
+          <p style="margin:0;color:#B8C6DB;font-size:15px;max-width:540px">どれが必要か分からなくても大丈夫。目的を伺い、最適な組み合わせを一緒に設計します。</p>
+        </div>
+        <a class="btn-primary" href="#contact" style="position:relative;background:#1E5CE6;color:#FFFFFF;padding:16px 30px;border-radius:10px;font-size:15px;font-weight:700;white-space:nowrap;box-shadow:0 10px 28px rgba(30,92,230,0.4)">無料相談へ →</a>
       </div>
     </div>
-    <div class="works__visual" aria-hidden="true">
-      <div class="mini-lp">
-        <div class="mini-lp__bar accent"></div>
-        <div class="mini-lp__stack"><div class="mini-lp__bar w90"></div><div class="mini-lp__bar w70"></div><div class="mini-lp__bar w90"></div></div>
-        <div class="mini-lp__btn"></div>
+  </section>
+
+  <!-- ================= 03 WHY (dark) ================= -->
+  <section id="why" style="background:#0A1A30;color:#EAF1FB;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 90% 60% at 70% 20%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 90% 60% at 70% 20%,#000 30%,transparent 100%)"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#41597B;font-weight:700">03</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#3B7BF0;font-weight:600">Why Advans</span>
+        <span style="font-size:13px;color:#8FA3BE;letter-spacing:.06em">選ばれる理由</span>
+      </div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 16px;color:#FFFFFF">派手さより、事業に効くこと。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:580px;margin:0 0 clamp(40px,5vw,60px);color:#B8C6DB;font-size:15px">Advansが大切にしている、4つの姿勢です。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px">
+
+        <div class="card-glass" data-reveal style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:34px 32px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:16px"><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;color:#3B7BF0;font-weight:700">01</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E86A6;font-weight:500">Outcome-driven</span></div>
+          <h3 style="font-size:21px;font-weight:900;margin:0 0 12px;color:#FFFFFF">成果から逆算する</h3>
+          <p style="margin:0;color:#B8C6DB;font-size:15px;line-height:1.9">「誰に・何を届け・どう動いてほしいか」を決めてから作る。デザインは目的を果たす手段と考えます。</p>
+        </div>
+
+        <div class="card-glass" data-reveal style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:34px 32px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:16px"><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;color:#3B7BF0;font-weight:700">02</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E86A6;font-weight:500">Beyond launch</span></div>
+          <h3 style="font-size:21px;font-weight:900;margin:0 0 12px;color:#FFFFFF">作って終わりにしない</h3>
+          <p style="margin:0;color:#B8C6DB;font-size:15px;line-height:1.9">公開はスタート地点。数字を見ながら、成果が出る状態まで伴走します。</p>
+        </div>
+
+        <div class="card-glass" data-reveal style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:34px 32px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:16px"><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;color:#3B7BF0;font-weight:700">03</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E86A6;font-weight:500">Fast &amp; direct</span></div>
+          <h3 style="font-size:21px;font-weight:900;margin:0 0 12px;color:#FFFFFF">速く、直接やり取り</h3>
+          <p style="margin:0;color:#B8C6DB;font-size:15px;line-height:1.9">間に人を挟まない分、意思決定が速い。言ったことが翌日には形になる進め方です。</p>
+        </div>
+
+        <div class="card-glass" data-reveal style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:34px 32px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:16px"><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;color:#3B7BF0;font-weight:700">04</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E86A6;font-weight:500">End-to-end</span></div>
+          <h3 style="font-size:21px;font-weight:900;margin:0 0 12px;color:#FFFFFF">集客を一気通貫で</h3>
+          <p style="margin:0;color:#B8C6DB;font-size:15px;line-height:1.9">LP・広告・SNS・AIまで横断して見られるから、施策が一本の戦略として機能します。</p>
+        </div>
+
+      </div>
+
+      <div id="stats-row" data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;margin-top:24px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:18px;overflow:hidden">
+        <div style="background:#0C1E38;padding:clamp(30px,4vw,42px) 28px">
+          <div style="display:flex;align-items:baseline;gap:5px"><span data-target="5" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,68px);font-weight:700;line-height:1;color:#FFFFFF;letter-spacing:-.02em">5</span></div>
+          <p style="margin:16px 0 0;font-size:14px;color:#8FA3BE;line-height:1.7;white-space:pre-line">の領域を
+ワンストップで</p>
+        </div>
+        <div style="background:#0C1E38;padding:clamp(30px,4vw,42px) 28px">
+          <div style="display:flex;align-items:baseline;gap:5px"><span data-target="47" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,68px);font-weight:700;line-height:1;color:#FFFFFF;letter-spacing:-.02em">47</span><span style="font-size:19px;font-weight:700;color:#3B7BF0">都道府県</span></div>
+          <p style="margin:16px 0 0;font-size:14px;color:#8FA3BE;line-height:1.7;white-space:pre-line">全国オンラインで
+対応</p>
+        </div>
+        <div style="background:#0C1E38;padding:clamp(30px,4vw,42px) 28px">
+          <div style="display:flex;align-items:baseline;gap:5px"><span data-target="0" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,68px);font-weight:700;line-height:1;color:#FFFFFF;letter-spacing:-.02em">0</span><span style="font-size:19px;font-weight:700;color:#3B7BF0">円</span></div>
+          <p style="margin:16px 0 0;font-size:14px;color:#8FA3BE;line-height:1.7;white-space:pre-line">初回のご相談は
+無料</p>
+        </div>
+        <div style="background:#0C1E38;padding:clamp(30px,4vw,42px) 28px">
+          <div style="display:flex;align-items:baseline;gap:5px"><span data-target="1" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,68px);font-weight:700;line-height:1;color:#FFFFFF;letter-spacing:-.02em">1</span><span style="font-size:19px;font-weight:700;color:#3B7BF0">窓口</span></div>
+          <p style="margin:16px 0 0;font-size:14px;color:#8FA3BE;line-height:1.7;white-space:pre-line">相談から運用まで
+一気通貫</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================== PROCESS ============================== -->
-<section class="panel panel--b" id="process">
-  <div class="sec-head">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">Process</span>
-      <span class="eyebrow-jp">制作の流れ</span>
-    </div>
-    <h3 class="h-sec" data-reveal data-delay="70">相談から、運用まで。</h3>
-    <p class="lead" data-reveal data-delay="130">初回のご相談は無料です。ヒアリングから公開後の改善まで、一本の流れで進めます。</p>
-  </div>
-  <div class="flow">
-    <div class="flow-step" data-reveal data-delay="0"><div class="flow-step__no">01</div><h3>相談・ヒアリング</h3><p>課題と目標を伺います。ここは無料。無理な提案はしません。</p></div>
-    <div class="flow-step" data-reveal data-delay="90"><div class="flow-step__no">02</div><h3>構成・見積もり</h3><p>何を作るべきかを構成案で提示。費用と期間も明確にします。</p></div>
-    <div class="flow-step" data-reveal data-delay="180"><div class="flow-step__no">03</div><h3>デザイン・制作</h3><p>確認をとりながら形に。こまめに共有しズレを防ぎます。</p></div>
-    <div class="flow-step" data-reveal data-delay="270"><div class="flow-step__no">04</div><h3>公開</h3><p>表示・速度・動線をチェックして公開します。</p></div>
-    <div class="flow-step" data-reveal data-delay="360"><div class="flow-step__no">05</div><h3>運用・改善</h3><p>数字を見ながら改善。成果が出るまで伴走します。</p></div>
-  </div>
-</section>
-
-<!-- ============================== COMPANY ============================== -->
-<section class="panel panel--a" id="company">
-  <div class="sec-head">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">Company</span>
-      <span class="eyebrow-jp">会社概要</span>
-    </div>
-    <h3 class="h-sec" data-reveal data-delay="70">会社概要</h3>
-  </div>
-  <dl class="company" data-reveal data-delay="0">
-    <div class="company__row"><dt>屋号 <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Name</span></dt><dd>Advans（アドバンス）</dd></div>
-    <div class="company__row"><dt>事業内容 <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Business</span></dt><dd>Web制作・集客支援<span class="company__sub">LP・ホームページ制作 / 広告運用 / SNSマーケティング / AI活用支援</span></dd></div>
-    <div class="company__row"><dt>所在地 <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Location</span></dt><dd>東京都世田谷区</dd></div>
-    <div class="company__row"><dt>創業 <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Founded</span></dt><dd>2025年5月</dd></div>
-    <div class="company__row"><dt>対応エリア <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Area</span></dt><dd>全国（オンライン対応）</dd></div>
-    <div class="company__row"><dt>連絡先 <span style="font-family:var(--jp);font-weight:400;letter-spacing:0">/ Contact</span></dt><dd><a href="mailto:xiaokoulu@gmail.com">xiaokoulu@gmail.com</a></dd></div>
-  </dl>
-</section>
-
-<!-- ============================== FAQ ============================== -->
-<section class="panel panel--b" id="faq">
-  <div class="sec-head">
-    <div class="eyebrow-row" data-reveal data-delay="0">
-      <span class="eyebrow-rule"></span>
-      <span class="eyebrow-en">FAQ</span>
-      <span class="eyebrow-jp">よくあるご質問</span>
-    </div>
-    <h3 class="h-sec" data-reveal data-delay="70">よくあるご質問</h3>
-  </div>
-  <div class="faq" data-reveal data-delay="0">
-    <details><summary>対応エリアはどこまでですか？</summary><div class="faq__a">全国オンラインで対応しています。打ち合わせはオンライン中心のため、地域を問わずご依頼いただけます。</div></details>
-    <details><summary>費用はどのくらいですか？</summary><div class="faq__a">内容や規模によって変わるため、まずは無料相談でご要望を伺い、お見積もりをお出しします。ご予算に合わせた提案も可能です。</div></details>
-    <details><summary>制作期間の目安は？</summary><div class="faq__a">LPであれば数週間、ホームページは規模によりますが1〜2ヶ月程度が目安です。お急ぎの事情があればご相談ください。</div></details>
-    <details><summary>公開したあとのサポートはありますか？</summary><div class="faq__a">あります。私たちは「作って終わり」にしません。公開後の運用・改善、広告やSNSでの集客まで継続して伴走します。</div></details>
-    <details><summary>相談だけでも大丈夫ですか？</summary><div class="faq__a">もちろんです。初回のご相談は無料で、その場で契約を迫ることはありません。「何から始めればいいか分からない」段階でもお気軽にどうぞ。</div></details>
-    <details><summary>対応できる業種は？</summary><div class="faq__a">業種を問わず幅広く対応しています。BtoB・BtoC、店舗から新設法人まで、それぞれに合った集客の形をご提案します。</div></details>
-  </div>
-</section>
-
-<!-- ============================== CONTACT ============================== -->
-<section class="panel panel--a" id="contact">
-  <div class="contact-grid">
-    <div class="contact-lead">
-      <div class="eyebrow-row" data-reveal data-delay="0">
-        <span class="eyebrow-rule"></span>
-        <span class="eyebrow-en">Contact</span>
-        <span class="eyebrow-jp">お問い合わせ</span>
+  <!-- ================= 04 WORKS ================= -->
+  <!-- TODO(実績): works は事例が増えたらカードを追加。live カードのサムネは実スクショ(16:10)に差し替え -->
+  <section id="works" style="background:#F5F8FC">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">04</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">Works</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">制作実績</span>
       </div>
-      <h2 data-reveal data-delay="70">まず、話を<br>聞かせてください。</h2>
-      <p class="lead" data-reveal data-delay="130">「何から始めればいいか分からない」でも大丈夫です。相談だけでも歓迎します。ご都合の良い方法でお問い合わせください。</p>
-      <div class="channels" data-reveal data-delay="190">
-        <a href="#contact" class="channel" onclick="document.getElementById('name').focus();return false;">
-          <span class="channel__chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="5.4" width="16" height="13.2" rx="1.6" stroke="#D96A34" stroke-width="1.6"/><path d="M8 10.5h8M8 13.5h5" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-          <span><span class="channel__t">無料相談フォーム</span><span class="channel__d">下のフォームから、24時間受付</span></span>
-          <span class="channel__arw">→</span>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 16px;color:#0C1B2E">仕上がりは、実物で。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:620px;margin:0 0 clamp(40px,5vw,60px);color:#5B6B80;font-size:15px">実際に制作したLPの事例を公開しています。デザインや構成の作り込みは、実物を見ていただくのが一番です。事例は順次追加していきます。</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px">
+
+        <a class="card-work" href="https://lp-sample-three.vercel.app/?utm_source=advans_hp&utm_medium=referral&utm_content=works" target="_blank" rel="noopener" data-reveal style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E1E9F4;border-radius:18px;overflow:hidden;color:inherit">
+          <div style="aspect-ratio:16/10;background-image:repeating-linear-gradient(135deg,#DCE7F5 0 14px,#EAF1FB 14px 28px);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:.14em;color:#7C90AD;background:#FFFFFF;border:1px solid #D6E2F3;padding:9px 15px;border-radius:8px">LP screenshot</span>
+          </div>
+          <div style="padding:28px 26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#1E5CE6;font-weight:700">Landing Page</span>
+            <h3 style="font-size:21px;font-weight:900;margin:14px 0 10px;color:#0C1B2E">LP制作の事例</h3>
+            <p style="margin:0 0 20px;color:#5B6B80;font-size:14.5px;line-height:1.85">Instagramでも紹介しているランディングページの実例です。訴求・構成・デザインの質感を、実物でご確認ください。</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+              <span style="font-size:12px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:5px 12px">LP制作</span>
+              <span style="font-size:12px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:5px 12px">構成設計</span>
+              <span style="font-size:12px;color:#3E5877;background:#EAF1FB;border:1px solid #D6E2F3;border-radius:999px;padding:5px 12px">デザイン</span>
+            </div>
+            <span style="margin-top:auto;color:#1E5CE6;font-weight:700;font-size:14.5px">事例を見る ↗</span>
+          </div>
         </a>
-        <a href="https://lin.ee/YOUR_LINE_ID" target="_blank" rel="noopener" class="channel">
-          <span class="channel__chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-.9 0-1.8-.1-2.6-.3L4 20l1-3.4C3.7 15.3 3 13.5 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z" stroke="#D96A34" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span><span class="channel__t">LINEで相談</span><span class="channel__d">チャットで気軽にやり取り</span></span>
-          <span class="channel__arw">→</span>
-        </a>
-        <a href="mailto:xiaokoulu@gmail.com" class="channel">
-          <span class="channel__chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="6" width="17" height="12" rx="1.6" stroke="#D96A34" stroke-width="1.6"/><path d="M4 7.5l8 5.3 8-5.3" stroke="#D96A34" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><span class="channel__t">メールで相談</span><span class="channel__d">xiaokoulu@gmail.com</span></span>
-          <span class="channel__arw">→</span>
-        </a>
+
+        <div data-reveal style="display:flex;flex-direction:column;background:#EEF3FA;border:1px dashed #C7D6EC;border-radius:18px;overflow:hidden">
+          <div style="aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E4EBF6 0 14px,#EEF3FA 14px 28px)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#9AAAC0;font-weight:600">Coming soon</span>
+          </div>
+          <div style="padding:28px 26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9AAAC0;font-weight:700">Coming soon</span>
+            <h3 style="font-size:21px;font-weight:900;margin:14px 0 10px;color:#6B7B90">事例を準備中です</h3>
+            <p style="margin:0;color:#8091A6;font-size:14.5px;line-height:1.85">新しい制作事例を随時公開していきます。ご期待ください。</p>
+          </div>
+        </div>
+
+        <div data-reveal style="display:flex;flex-direction:column;background:#EEF3FA;border:1px dashed #C7D6EC;border-radius:18px;overflow:hidden">
+          <div style="aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E4EBF6 0 14px,#EEF3FA 14px 28px)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#9AAAC0;font-weight:600">Coming soon</span>
+          </div>
+          <div style="padding:28px 26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9AAAC0;font-weight:700">Coming soon</span>
+            <h3 style="font-size:21px;font-weight:900;margin:14px 0 10px;color:#6B7B90">事例を準備中です</h3>
+            <p style="margin:0;color:#8091A6;font-size:14.5px;line-height:1.85">新しい制作事例を随時公開していきます。ご期待ください。</p>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div data-reveal data-delay="120">
-      <form class="form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="field"><label for="name">お名前 <span class="req">*</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
-        <div class="field"><label for="company">会社名 / 屋号</label><input type="text" id="company" name="company" autocomplete="organization"></div>
-        <div class="field"><label for="email">メールアドレス <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email"></div>
-        <div class="field"><label for="message">ご相談内容 <span class="req">*</span></label><textarea id="message" name="message" required placeholder="例）新しく会社を立ち上げたので、ホームページと集客を相談したい。"></textarea></div>
-        <button type="submit" class="btn btn--accent">送信する <span class="arw">→</span></button>
-        <p class="form__msg" id="formMsg"></p>
-        <p class="form__note">送信内容はお問い合わせ対応のみに使用します。</p>
-      </form>
-    </div>
-  </div>
-</section>
+  </section>
 
-</main>
-
-<!-- ============================== FOOTER ============================== -->
-<footer class="footer">
-  <div class="footer__top">
-    <div>
-      <div class="footer__brand">
-        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
-          <defs><linearGradient id="mkF" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#CE5A1E"/><stop offset="1" stop-color="#F08A46"/></linearGradient></defs>
-          <path fill="#211C17" fill-rule="evenodd" d="M50,9L90,91L67,91L50,57L33,91L10,91ZM50,31L41,54L59,54Z"/>
-          <path fill="url(#mkF)" d="M15,72C42,66,68,57,89,29C91,26,93,26,92,29C91,33,88,37,83,41C63,58,43,66,22,75C18,77,13,76,15,72Z"/>
-        </svg>
-        <span>Advans</span>
+  <!-- ================= 05 PROCESS ================= -->
+  <section id="process" style="background:#FFFFFF;border-top:1px solid #E7EEF7">
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">05</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">Process</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">制作の流れ</span>
       </div>
-      <p class="footer__desc">企業を一歩前へ。LP・広告・AIまで、集客に関わる領域を一貫して支援するデジタルスタジオです。</p>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 16px;color:#0C1B2E">相談から、運用まで。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:580px;margin:0 0 clamp(44px,6vw,64px);color:#5B6B80;font-size:15px">初回のご相談は無料です。ヒアリングから公開後の改善まで、一本の流れで進めます。</p>
+      <div style="display:flex;flex-direction:column">
+
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,36px);align-items:stretch">
+          <div style="display:flex;flex-direction:column;align-items:center"><div style="width:54px;height:54px;flex-shrink:0;border:2px solid #1E5CE6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#1E5CE6;background:#FFFFFF">01</div><div style="flex:1;width:2px;background:#DCE6F2;margin:6px 0"></div></div>
+          <div style="padding-bottom:clamp(28px,4vw,44px)"><h3 style="margin:6px 0 8px;font-size:clamp(19px,2.4vw,23px);font-weight:900;color:#0C1B2E">相談・ヒアリング</h3><p style="margin:0;color:#5B6B80;font-size:15px;line-height:1.9;max-width:620px">課題と目標を伺います。ここは無料。無理な提案はしません。</p></div>
+        </div>
+
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,36px);align-items:stretch">
+          <div style="display:flex;flex-direction:column;align-items:center"><div style="width:54px;height:54px;flex-shrink:0;border:2px solid #1E5CE6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#1E5CE6;background:#FFFFFF">02</div><div style="flex:1;width:2px;background:#DCE6F2;margin:6px 0"></div></div>
+          <div style="padding-bottom:clamp(28px,4vw,44px)"><h3 style="margin:6px 0 8px;font-size:clamp(19px,2.4vw,23px);font-weight:900;color:#0C1B2E">構成・見積もり</h3><p style="margin:0;color:#5B6B80;font-size:15px;line-height:1.9;max-width:620px">何を作るべきかを構成案で提示。費用と期間も明確にします。</p></div>
+        </div>
+
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,36px);align-items:stretch">
+          <div style="display:flex;flex-direction:column;align-items:center"><div style="width:54px;height:54px;flex-shrink:0;border:2px solid #1E5CE6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#1E5CE6;background:#FFFFFF">03</div><div style="flex:1;width:2px;background:#DCE6F2;margin:6px 0"></div></div>
+          <div style="padding-bottom:clamp(28px,4vw,44px)"><h3 style="margin:6px 0 8px;font-size:clamp(19px,2.4vw,23px);font-weight:900;color:#0C1B2E">デザイン・制作</h3><p style="margin:0;color:#5B6B80;font-size:15px;line-height:1.9;max-width:620px">確認をとりながら形に。こまめに共有しズレを防ぎます。</p></div>
+        </div>
+
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,36px);align-items:stretch">
+          <div style="display:flex;flex-direction:column;align-items:center"><div style="width:54px;height:54px;flex-shrink:0;border:2px solid #1E5CE6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#1E5CE6;background:#FFFFFF">04</div><div style="flex:1;width:2px;background:#DCE6F2;margin:6px 0"></div></div>
+          <div style="padding-bottom:clamp(28px,4vw,44px)"><h3 style="margin:6px 0 8px;font-size:clamp(19px,2.4vw,23px);font-weight:900;color:#0C1B2E">公開</h3><p style="margin:0;color:#5B6B80;font-size:15px;line-height:1.9;max-width:620px">表示・速度・動線をチェックして公開します。</p></div>
+        </div>
+
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,36px);align-items:stretch">
+          <div style="display:flex;flex-direction:column;align-items:center"><div style="width:54px;height:54px;flex-shrink:0;border:2px solid #1E5CE6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#1E5CE6;background:#FFFFFF">05</div></div>
+          <div style="padding-bottom:0"><h3 style="margin:6px 0 8px;font-size:clamp(19px,2.4vw,23px);font-weight:900;color:#0C1B2E">運用・改善</h3><p style="margin:0;color:#5B6B80;font-size:15px;line-height:1.9;max-width:620px">数字を見ながら改善。成果が出るまで伴走します。</p></div>
+        </div>
+
+      </div>
     </div>
-    <div class="footer__info">
-      <span class="jp">屋号</span> &nbsp;<b>Advans</b><br>
-      <span class="jp">事業</span> &nbsp;<b class="jp">Web制作 / 広告 / SNS / AI活用支援</b><br>
-      <span class="jp">対応</span> &nbsp;<b class="jp">全国オンライン対応</b><br>
-      <span class="jp">連絡</span> &nbsp;<b>xiaokoulu@gmail.com</b>
+  </section>
+
+  <!-- ================= 06 COMPANY ================= -->
+  <section id="company" style="background:#F5F8FC">
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">06</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">Company</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">会社概要</span>
+      </div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 clamp(40px,5vw,56px);color:#0C1B2E">会社概要</h2>
+      <div data-reveal style="border-top:1px solid #DCE6F2">
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">屋号</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Name</span></div><span style="font-size:15px;color:#33475F;line-height:1.9">Advans（アドバンス）</span></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">事業内容</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Business</span></div><span style="font-size:15px;color:#33475F;line-height:1.9">Web制作・集客支援 / LP・ホームページ制作 / 広告運用 / SNSマーケティング / AI活用支援</span></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">所在地</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Location</span></div><span style="font-size:15px;color:#33475F;line-height:1.9">東京都世田谷区</span></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">創業</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Founded</span></div><span style="font-size:15px;color:#33475F;line-height:1.9">2025年5月</span></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">対応エリア</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Area</span></div><span style="font-size:15px;color:#33475F;line-height:1.9">全国（オンライン対応）</span></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(16px,4vw,40px);padding:24px 0;border-bottom:1px solid #DCE6F2;align-items:baseline"><div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700;color:#0C1B2E">連絡先</span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9AAAC0">Contact</span></div><span style="font-size:15px;color:#33475F;line-height:1.9"><a href="mailto:xiaokoulu@gmail.com">xiaokoulu@gmail.com</a></span></div>
+      </div>
     </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Advans. All rights reserved.</span>
-    <span class="jp" style="font-family:var(--jp)">企業を一歩前へ。</span>
-  </div>
-</footer>
+  </section>
+
+  <!-- ================= 07 FAQ ================= -->
+  <section id="faq" style="background:#FFFFFF;border-top:1px solid #E7EEF7">
+    <div style="max-width:900px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#B7C4D6;font-weight:700">07</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#1E5CE6;font-weight:600">FAQ</span>
+        <span style="font-size:13px;color:#8091A6;letter-spacing:.06em">よくあるご質問</span>
+      </div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(28px,4.6vw,48px);font-weight:900;line-height:1.35;margin:0 0 clamp(36px,5vw,48px);color:#0C1B2E">よくあるご質問</h2>
+      <div data-reveal style="display:flex;flex-direction:column;gap:12px">
+        <details class="faq-item" open><summary class="faq-summary"><span>対応エリアはどこまでですか？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">全国オンラインで対応しています。打ち合わせはオンライン中心のため、地域を問わずご依頼いただけます。</p></details>
+        <details class="faq-item"><summary class="faq-summary"><span>費用はどのくらいですか？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">内容や規模によって変わるため、まずは無料相談でご要望を伺い、お見積もりをお出しします。ご予算に合わせた提案も可能です。</p></details>
+        <details class="faq-item"><summary class="faq-summary"><span>制作期間の目安は？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">LPであれば数週間、ホームページは規模によりますが1〜2ヶ月程度が目安です。お急ぎの事情があればご相談ください。</p></details>
+        <details class="faq-item"><summary class="faq-summary"><span>公開したあとのサポートはありますか？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">あります。私たちは「作って終わり」にしません。公開後の運用・改善、広告やSNSでの集客まで継続して伴走します。</p></details>
+        <details class="faq-item"><summary class="faq-summary"><span>相談だけでも大丈夫ですか？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">もちろんです。初回のご相談は無料で、その場で契約を迫ることはありません。「何から始めればいいか分からない」段階でもお気軽にどうぞ。</p></details>
+        <details class="faq-item"><summary class="faq-summary"><span>対応できる業種は？</span><span class="faq-sign" aria-hidden="true"></span></summary><p class="faq-answer">業種を問わず幅広く対応しています。BtoB・BtoC、店舗から新設法人まで、それぞれに合った集客の形をご提案します。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 08 CONTACT (dark) ================= -->
+  <section id="contact" style="background:#0A1A30;color:#EAF1FB;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:min(22vw,300px);letter-spacing:-.02em;color:rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none">Contact</div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(20px,5vw,44px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#41597B;font-weight:700">08</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#3B7BF0;font-weight:600">Contact</span>
+        <span style="font-size:13px;color:#8FA3BE;letter-spacing:.06em">お問い合わせ</span>
+      </div>
+      <h2 data-reveal style="transition-delay:60ms;font-size:clamp(30px,5.2vw,56px);font-weight:900;line-height:1.22;margin:0 0 16px;color:#FFFFFF">まず、話を<br>聞かせてください。</h2>
+      <p data-reveal style="transition-delay:120ms;max-width:580px;margin:0 0 clamp(44px,6vw,60px);color:#B8C6DB;font-size:15px">「何から始めればいいか分からない」でも大丈夫です。相談だけでも歓迎します。ご都合の良い方法でお問い合わせください。</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:clamp(36px,5vw,52px)">
+        <a class="card-glass" href="#contact-form" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:6px;color:inherit"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3B7BF0;font-weight:700">Form</span><span style="font-size:17px;font-weight:700;color:#FFFFFF;margin-top:4px">無料相談フォーム</span><span style="font-size:13px;color:#8FA3BE">下のフォームから、24時間受付 →</span></a>
+        <!-- TODO(LINE): href を実際の LINE 公式アカウント URL に差し替え -->
+        <a class="card-glass" href="https://lin.ee/YOUR_LINE_ID" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:6px;color:inherit"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3B7BF0;font-weight:700">LINE</span><span style="font-size:17px;font-weight:700;color:#FFFFFF;margin-top:4px">LINEで相談</span><span style="font-size:13px;color:#8FA3BE">チャットで気軽にやり取り →</span></a>
+        <a class="card-glass" href="mailto:xiaokoulu@gmail.com" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:6px;color:inherit"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3B7BF0;font-weight:700">Mail</span><span style="font-size:17px;font-weight:700;color:#FFFFFF;margin-top:4px">メールで相談</span><span style="font-size:13px;color:#8FA3BE">xiaokoulu@gmail.com →</span></a>
+      </div>
+
+      <div id="contact-form" data-reveal style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:clamp(28px,5vw,52px)">
+        <!-- TODO(送信): 現在は送信完了ビューの表示のみ（実送信なし）。
+             Formspree などのフォームサービス、または Resend / SendGrid 等の API を submit ハンドラに接続してください。 -->
+        <form id="advForm" novalidate style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="color:#DCE6F2;font-size:14px;font-weight:700">お名前 <span style="color:#3B7BF0">*</span></span>
+            <input class="field" name="name" required placeholder="山田 太郎" style="background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:14px 16px;color:#EAF1FB;font-size:15px;outline:none">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="color:#DCE6F2;font-size:14px;font-weight:700">会社名 / 屋号</span>
+            <input class="field" name="company" placeholder="株式会社◯◯" style="background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:14px 16px;color:#EAF1FB;font-size:15px;outline:none">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+            <span style="color:#DCE6F2;font-size:14px;font-weight:700">メールアドレス <span style="color:#3B7BF0">*</span></span>
+            <input class="field" type="email" name="email" required placeholder="you@example.com" style="background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:14px 16px;color:#EAF1FB;font-size:15px;outline:none">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+            <span style="color:#DCE6F2;font-size:14px;font-weight:700">ご相談内容 <span style="color:#3B7BF0">*</span></span>
+            <textarea class="field" name="message" required rows="5" placeholder="現在の課題や、やってみたいことをお聞かせください。" style="background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:14px 16px;color:#EAF1FB;font-size:15px;outline:none;resize:vertical;line-height:1.8"></textarea>
+          </label>
+          <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:4px">
+            <button class="btn-primary" type="submit" style="background:#1E5CE6;color:#FFFFFF;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 12px 30px rgba(30,92,230,0.4)">送信する →</button>
+            <span style="color:#7488A2;font-size:13px">送信内容はお問い合わせ対応のみに使用します。</span>
+          </div>
+        </form>
+        <div id="formDone" style="display:none;text-align:center;padding:clamp(24px,5vw,48px) 0">
+          <div style="width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:#1E5CE6;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff">✓</div>
+          <h3 style="color:#FFFFFF;font-size:24px;font-weight:900;margin:0 0 10px">送信ありがとうございます。</h3>
+          <p style="color:#B8C6DB;font-size:15px;margin:0">内容を確認のうえ、担当より折り返しご連絡いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="background-color:#06101F">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(52px,7vw,80px) clamp(20px,5vw,44px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px">
+        <div style="max-width:440px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:.02em;color:#EAF1FB;display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:10px;height:10px;background:#1E5CE6;border-radius:50%"></span>Advans</div>
+          <p style="margin:0;color:#8FA3BE;font-size:14px;line-height:1.9">企業を一歩前へ。LP・広告・AIまで、集客に関わる領域を一貫して支援するデジタルスタジオです。</p>
+        </div>
+        <div style="display:grid;grid-template-columns:auto auto;gap:12px 40px;font-size:14px;align-self:start">
+          <span style="color:#607691">屋号</span><span style="color:#C6D3E4;font-weight:500">Advans</span>
+          <span style="color:#607691">事業</span><span style="color:#C6D3E4;font-weight:500">Web制作 / 広告 / SNS / AI活用支援</span>
+          <span style="color:#607691">対応</span><span style="color:#C6D3E4;font-weight:500">全国オンライン対応</span>
+          <span style="color:#607691">連絡</span><a href="mailto:xiaokoulu@gmail.com" style="font-weight:500">xiaokoulu@gmail.com</a>
+        </div>
+      </div>
+      <div style="margin-top:clamp(40px,5vw,56px);padding-top:24px;border-top:1px solid #16273F;color:#607691;font-size:13px">© 2026 Advans. All rights reserved. 企業を一歩前へ。</div>
+    </div>
+  </footer>
 
 <script>
 (function(){
-  'use strict';
+  "use strict";
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* header border on scroll */
-  var header = document.getElementById('header');
-  function onScroll(){ header.classList.toggle('is-scrolled', window.scrollY > 8); }
-  onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
+  /* ---- mobile menu ---- */
+  var overlay = document.getElementById('navOverlay');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ overlay.classList.add('open'); document.body.classList.add('no-scroll'); openBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ overlay.classList.remove('open'); document.body.classList.remove('no-scroll'); openBtn.setAttribute('aria-expanded','false'); }
+  if(openBtn) openBtn.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  window.matchMedia('(min-width:1001px)').addEventListener('change', function(e){ if(e.matches) closeMenu(); });
 
-  /* hamburger */
-  var toggle = document.getElementById('navToggle');
-  var menu = document.getElementById('mobileMenu');
-  function setMenu(open){
-    toggle.classList.toggle('is-open', open);
-    menu.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
-    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  toggle.addEventListener('click', function(){ setMenu(!menu.classList.contains('is-open')); });
-  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
-  window.addEventListener('resize', function(){ if(window.innerWidth > 900) setMenu(false); });
-
-  /* hero swoosh */
-  if(!reduce){
-    var sw = document.querySelector('.hero__swoosh path');
-    if(sw){ sw.style.transition='stroke-dashoffset 1.7s cubic-bezier(.4,0,.2,1) .3s'; requestAnimationFrame(function(){requestAnimationFrame(function(){sw.style.strokeDashoffset='0';});}); }
+  /* ---- scroll reveal ---- */
+  var reveals = document.querySelectorAll('[data-reveal]');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
   }
 
-  /* scroll reveal（data-reveal + data-delay / threshold .12） */
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var d = parseInt(el.dataset.delay || '0', 10);
-      setTimeout(function(){
-        el.classList.add('is-in');
-        if(el.querySelectorAll){ el.querySelectorAll('.count').forEach(runCount); }
-      }, reduce ? 0 : d);
-      io.unobserve(el);
-    });
-  }, { threshold:0.12 });
-  document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
-
-  /* count up */
-  function runCount(el){
-    if(el.dataset.done) return; el.dataset.done='1';
-    var to = parseInt(el.getAttribute('data-to'),10) || 0;
-    if(reduce || to === 0){ el.textContent = to; return; }
-    var start = performance.now(), dur = 1100;
-    (function tick(now){
-      var p = Math.min((now-start)/dur, 1), eased = 1-Math.pow(1-p,3);
-      el.textContent = Math.round(to*eased);
-      if(p < 1) requestAnimationFrame(tick);
-    })(start);
-  }
-
-  /* contact form (Formspree + fallback) */
-  var form = document.getElementById('contactForm'), msg = document.getElementById('formMsg');
-  form.addEventListener('submit', function(ev){
-    if(form.action.indexOf('YOUR_FORM_ID') !== -1){
-      ev.preventDefault(); msg.className='form__msg err';
-      msg.textContent='送信先が未設定です。xiaokoulu@gmail.com までご連絡ください。'; return;
+  /* ---- stat count-up ---- */
+  var statsRow = document.getElementById('stats-row');
+  if(statsRow){
+    var nums = [].slice.call(statsRow.querySelectorAll('[data-target]'));
+    if(!reduce && ('IntersectionObserver' in window)){
+      var run = function(){
+        var dur = 1300, start = performance.now();
+        var targets = nums.map(function(n){ return parseInt(n.getAttribute('data-target'), 10) || 0; });
+        nums.forEach(function(n){ n.textContent = '0'; });
+        var tick = function(now){
+          var p = Math.min(1, (now - start) / dur);
+          var e = 1 - Math.pow(1 - p, 3);
+          nums.forEach(function(n, i){ n.textContent = String(Math.round(targets[i] * e)); });
+          if(p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ run(); cio.disconnect(); } });
+      }, { threshold: 0.3 });
+      cio.observe(statsRow);
     }
-    ev.preventDefault();
-    var btn = form.querySelector('button[type=submit]'), original = btn.innerHTML;
-    btn.innerHTML='送信中…'; btn.disabled=true;
-    fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
-      .then(function(r){ if(r.ok){ form.reset(); msg.className='form__msg ok'; msg.textContent='送信しました。2営業日以内にご返信します。'; } else { throw new Error(); } })
-      .catch(function(){ msg.className='form__msg err'; msg.textContent='送信に失敗しました。お手数ですが xiaokoulu@gmail.com までご連絡ください。'; })
-      .finally(function(){ btn.innerHTML=original; btn.disabled=false; });
+  }
+
+  /* ---- FAQ: keep only one open at a time ---- */
+  var faqs = [].slice.call(document.querySelectorAll('.faq-item'));
+  faqs.forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(d.open){ faqs.forEach(function(o){ if(o !== d) o.open = false; }); }
+    });
   });
+
+  /* ---- contact form (client-side completion view only; wire a backend at TODO above) ---- */
+  var form = document.getElementById('advForm');
+  var done = document.getElementById('formDone');
+  if(form && done){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.elements['name'].value.trim();
+      var email = form.elements['email'].value.trim();
+      var message = form.elements['message'].value.trim();
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if(!name || !emailOk || !message){
+        if(typeof form.reportValidity === 'function') form.reportValidity();
+        return;
+      }
+      form.style.display = 'none';
+      done.style.display = 'block';
+      done.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    });
+  }
 })();
 </script>
 </body>
