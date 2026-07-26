@@ -1,0 +1,14 @@
+.sec {
+  padding: 90px var(--pad-x) 120px;
+  background: var(--bg);
+}
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .sec {
+    padding: 64px 24px 96px;
+  }
+}

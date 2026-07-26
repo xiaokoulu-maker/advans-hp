@@ -1,0 +1,223 @@
+/* ===================================================================
+   REVANS — グローバルスタイル
+   デザイントークン（README「Design Tokens」の確定値）＋ keyframes ＋
+   最小リセット ＋ prefers-reduced-motion 対応。
+   =================================================================== */
+
+:root {
+  /* Colors */
+  --bg: #0b1526; /* ベース背景（濃紺・わずかにリフト） */
+  --bg-dark: #0c1626; /* セクション背景（暗）・黒に寄りすぎないよう持ち上げ */
+  --bg-darkest: #091120; /* 最暗（フッター・ヒーロー端） */
+  --card: #0e1a2e; /* カード背景（明） */
+
+  --blue: #2e6bff; /* メインブルー */
+  --blue-light: #4da3ff; /* ライトブルー（発光） */
+  --blue-pale: #8fc6ff; /* ペールブルー */
+  --accent: #ff6a2c; /* アクセント（オレンジ） */
+  --accent-light: #ff8a4c; /* アクセント明（グラデ用） */
+
+  --text: #f6f8fc; /* ライト（文字） */
+  --text-strong: #c6d2e6; /* 本文（明） */
+  --text-body: #a9b8d1; /* 本文（標準） */
+  --text-weak: #93a2bd; /* 本文（弱） */
+  --text-sub: #6b7a94; /* 補助テキスト */
+  --text-faint: #4e5c75; /* 最弱テキスト */
+
+  /* Layout */
+  --maxw: 1240px;
+  --pad-x: 48px; /* セクション左右パディング（デスクトップ） */
+  --pad-y: 130px; /* セクション上下パディング */
+  --header-h: 72px; /* sticky ヘッダー分のスクロールオフセット */
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-lg: 10px;
+  --r-flow: 12px;
+  --r-card: 14px;
+  --r-chip: 999px;
+
+  /* Easing */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---- reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-noto), "Noto Sans JP", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+a {
+  color: var(--blue-light);
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* セクション見出しのアンカー着地位置（sticky ヘッダー分） */
+:target {
+  scroll-margin-top: var(--header-h);
+}
+
+/* Space Grotesk（欧文・数字・ラベル）を当てるユーティリティ */
+.font-en {
+  font-family: var(--font-grotesk), "Space Grotesk", sans-serif;
+}
+
+/* 本文の折返し最適化 */
+.pretty {
+  text-wrap: pretty;
+}
+
+/* ---- keyframes（README「常時アニメーション」の確定値） ---- */
+@keyframes revGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 64px, 64px 0;
+  }
+}
+@keyframes revSweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(420%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+@keyframes revDrawLoop {
+  0% {
+    stroke-dashoffset: 220;
+  }
+  45%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes revArrowLoop {
+  0%,
+  38% {
+    transform: translate(-14px, 16px);
+    opacity: 0;
+  }
+  56% {
+    opacity: 1;
+  }
+  72%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes revPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+}
+@keyframes revOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -30px, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-30px, 20px, 0) scale(0.95);
+  }
+}
+@keyframes revRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes revWatermark {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateX(-1.5%);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(1.5%);
+    opacity: 1;
+  }
+}
+
+/* ===================================================================
+   prefers-reduced-motion（必須）
+   常時アニメを停止し、リビールは即時表示、ロゴは最終状態で静止。
+   =================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+}

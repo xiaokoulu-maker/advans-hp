@@ -1,0 +1,128 @@
+.sec {
+  padding: 110px var(--pad-x);
+  background: var(--bg);
+}
+.alt {
+  background: var(--bg-dark);
+}
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+/* セクション見出し（inner の先頭要素）下の間隔 */
+.inner > *:first-child {
+  margin-bottom: 40px;
+}
+
+.g3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.g2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ISSUES */
+.issue {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 26px;
+  border-radius: var(--r-card);
+  background: rgba(8, 14, 26, 0.6);
+  border: 1px solid rgba(77, 163, 255, 0.14);
+}
+.issueTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--text);
+}
+.issueBody {
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--text-weak);
+}
+
+/* WHAT WE DO */
+.feature {
+  display: flex;
+  gap: 18px;
+  padding: 30px 28px;
+  border-radius: var(--r-card);
+  background: linear-gradient(165deg, rgba(19, 36, 65, 0.85), rgba(10, 18, 32, 0.85));
+  border: 1px solid rgba(77, 163, 255, 0.16);
+}
+.num {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(77, 163, 255, 0.6);
+  line-height: 1.2;
+}
+.featTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.featBody {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--text-weak);
+}
+
+/* FLOW */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px 26px;
+  border-radius: var(--r-flow);
+  background: linear-gradient(180deg, rgba(19, 36, 65, 0.6), rgba(8, 14, 26, 0.6));
+  border-left: 2px solid var(--blue);
+}
+.stepNo {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(77, 163, 255, 0.55);
+}
+.stepTitle {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.stepBody {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text-weak);
+}
+.note {
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-weak);
+}
+
+@media (max-width: 1080px) {
+  .g3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .sec {
+    padding: 72px 24px;
+  }
+  .g3,
+  .g2,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
