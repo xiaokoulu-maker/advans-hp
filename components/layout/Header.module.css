@@ -65,6 +65,11 @@
   border: 1px solid rgba(198, 210, 230, 0.24);
   border-radius: var(--r-sm);
 }
+
+/* モバイルドロワーの背面オーバーレイ（既定は非表示） */
+.overlay {
+  display: none;
+}
 .bar {
   display: block;
   width: 20px;
@@ -86,21 +91,41 @@
 @media (max-width: 768px) {
   .toggle {
     display: flex;
+    position: relative;
+    z-index: 3; /* ドロワー/オーバーレイより前面（×で閉じられる） */
   }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(4, 8, 18, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease);
+  }
+  .overlayOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .nav {
     position: fixed;
     inset: 0 0 0 auto;
-    width: min(78vw, 320px);
+    z-index: 2; /* オーバーレイより前面 */
+    width: min(80vw, 320px);
     flex-direction: column;
     align-items: flex-start;
     gap: 22px;
     padding: 96px 28px 40px;
-    background: rgba(8, 14, 26, 0.97);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-left: 1px solid rgba(77, 163, 255, 0.14);
+    /* 完全不透明：背面のテキストが透けないようにする */
+    background: #0a1220;
+    border-left: 1px solid rgba(77, 163, 255, 0.18);
+    box-shadow: -24px 0 60px rgba(2, 5, 12, 0.6);
     transform: translateX(100%);
     transition: transform 0.3s var(--ease);
+    overflow-y: auto;
   }
   .navOpen {
     transform: translateX(0);

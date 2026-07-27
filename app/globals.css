@@ -1,7 +1,9 @@
 /* ===================================================================
    REVANS — グローバルスタイル
-   デザイントークン（README「Design Tokens」の確定値）＋ keyframes ＋
-   最小リセット ＋ prefers-reduced-motion 対応。
+   デザイントークン（README「Design Tokens」の確定値）＋ 最小リセット ＋
+   prefers-reduced-motion 対応。
+   ※ @keyframes は各 CSS Module 内に定義する（CSS Modules が animation-name を
+     スコープ名にリネームするため、グローバル定義だと名前が一致せず本番で発火しない）。
    =================================================================== */
 
 :root {
@@ -26,9 +28,9 @@
 
   /* Layout */
   --maxw: 1240px;
-  --pad-x: 48px; /* セクション左右パディング（デスクトップ） */
-  --pad-y: 130px; /* セクション上下パディング */
-  --header-h: 72px; /* sticky ヘッダー分のスクロールオフセット */
+  --pad-x: 48px;
+  --pad-y: 130px;
+  --header-h: 72px;
 
   /* Radius */
   --r-sm: 8px;
@@ -94,113 +96,16 @@ ul {
   list-style: none;
 }
 
-/* セクション見出しのアンカー着地位置（sticky ヘッダー分） */
 :target {
   scroll-margin-top: var(--header-h);
 }
 
-/* Space Grotesk（欧文・数字・ラベル）を当てるユーティリティ */
 .font-en {
   font-family: var(--font-grotesk), "Space Grotesk", sans-serif;
 }
 
-/* 本文の折返し最適化 */
 .pretty {
   text-wrap: pretty;
-}
-
-/* ---- keyframes（README「常時アニメーション」の確定値） ---- */
-@keyframes revGrid {
-  from {
-    background-position: 0 0, 0 0;
-  }
-  to {
-    background-position: 0 64px, 64px 0;
-  }
-}
-@keyframes revSweep {
-  0% {
-    transform: translateX(-120%) skewX(-12deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.9;
-  }
-  60% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(420%) skewX(-12deg);
-    opacity: 0;
-  }
-}
-@keyframes revDrawLoop {
-  0% {
-    stroke-dashoffset: 220;
-  }
-  45%,
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes revArrowLoop {
-  0%,
-  38% {
-    transform: translate(-14px, 16px);
-    opacity: 0;
-  }
-  56% {
-    opacity: 1;
-  }
-  72%,
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-@keyframes revPulse {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.06);
-  }
-}
-@keyframes revOrb {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  33% {
-    transform: translate3d(40px, -30px, 0) scale(1.12);
-  }
-  66% {
-    transform: translate3d(-30px, 20px, 0) scale(0.95);
-  }
-}
-@keyframes revRise {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes revWatermark {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateX(-1.5%);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translate(-50%, -50%) translateX(1.5%);
-    opacity: 1;
-  }
 }
 
 /* ===================================================================

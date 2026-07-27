@@ -76,8 +76,10 @@
 }
 .symbol {
   position: relative;
+  /* em の基準を wordmark サイズに固定し、width も明示（width:auto の解決差を排除） */
+  font-size: var(--wm-size);
   height: var(--wm-a-h);
-  width: auto;
+  width: calc(var(--wm-a-h) * 0.675); /* viewBox 54:80 のアスペクト比 */
   filter: drop-shadow(0 0 30px rgba(46, 107, 255, 0.6));
 }
 .draw {
@@ -85,6 +87,89 @@
 }
 .arrow {
   animation: revArrowLoop 4.2s ease-out infinite;
+}
+
+/* ---- keyframes（このモジュール内に定義：CSS Modules のスコープを animation-name と一致させる） ---- */
+@keyframes revGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 64px, 64px 0;
+  }
+}
+@keyframes revOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -30px, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-30px, 20px, 0) scale(0.95);
+  }
+}
+@keyframes revSweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(420%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+@keyframes revPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+}
+@keyframes revDrawLoop {
+  0% {
+    stroke-dashoffset: 220;
+  }
+  45%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes revArrowLoop {
+  0%,
+  38% {
+    transform: translate(-14px, 16px);
+    opacity: 0;
+  }
+  56% {
+    opacity: 1;
+  }
+  72%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes revRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- 背景アニメレイヤー --- */

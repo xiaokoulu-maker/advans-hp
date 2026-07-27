@@ -66,3 +66,15 @@
     max-width: 360px;
   }
 }
+/* keyframes（モジュール内定義：animation-name のスコープと一致させる） */
+@keyframes revPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+}

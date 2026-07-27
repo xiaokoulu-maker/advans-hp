@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import styles from './Header.module.css';
@@ -17,6 +17,14 @@ const NAV = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  // ドロワー展開中は背面スクロールをロック
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   return (
     <header className={styles.header}>
@@ -37,6 +45,13 @@ export default function Header() {
           <span className={`${styles.bar} ${open ? styles.barOpen2 : ''}`} />
           <span className={`${styles.bar} ${open ? styles.barOpen3 : ''}`} />
         </button>
+
+        {/* モバイル用オーバーレイ（タップで閉じる） */}
+        <div
+          className={`${styles.overlay} ${open ? styles.overlayOpen : ''}`}
+          onClick={close}
+          aria-hidden
+        />
 
         <nav
           id="global-nav"
