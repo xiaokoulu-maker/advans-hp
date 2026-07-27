@@ -1,0 +1,77 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.item {
+  border-radius: var(--r-card);
+  background: linear-gradient(165deg, rgba(19, 36, 65, 0.7), rgba(10, 18, 32, 0.7));
+  border: 1px solid rgba(77, 163, 255, 0.16);
+  overflow: hidden;
+}
+.item[open] {
+  border-color: rgba(77, 163, 255, 0.4);
+}
+
+.q {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+/* デフォルトの三角マーカーを消す */
+.q::-webkit-details-marker {
+  display: none;
+}
+.mark {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue-light);
+  background: rgba(46, 107, 255, 0.14);
+}
+.qText {
+  flex: 1;
+}
+.chevron {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--text-sub);
+  border-bottom: 2px solid var(--text-sub);
+  transform: rotate(45deg);
+  transition: transform 0.25s var(--ease);
+}
+.item[open] .chevron {
+  transform: rotate(-135deg);
+}
+
+.a {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 22px 22px;
+}
+.markA {
+  color: var(--accent);
+  background: rgba(255, 106, 44, 0.12);
+}
+.aText {
+  flex: 1;
+  padding-top: 2px;
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--text-body);
+}

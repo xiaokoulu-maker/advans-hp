@@ -1,0 +1,33 @@
+.sec {
+  padding: 110px var(--pad-x);
+  background: var(--bg);
+}
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.empty {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--text-weak);
+  font-size: 15px;
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .sec {
+    padding: 72px 24px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

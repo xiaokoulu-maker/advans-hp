@@ -1,0 +1,214 @@
+/* 記事本文のタイポグラフィ。サイトのトークン（濃紺×発光ブルー）に馴染ませる。
+   .prose はスコープされるため、配下の素の要素（h2/p/ul…）へ子孫セレクタで当てる。 */
+.prose {
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 2;
+  word-break: break-word;
+}
+
+/* 見出しの上マージン：h2 は :target のスクロール位置調整も効かせる */
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--text);
+  line-height: 1.5;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+.prose h2 {
+  position: relative;
+  margin: 56px 0 20px;
+  padding-left: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+/* 見出し左の発光ブルーのバー */
+.prose h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue-light), var(--blue));
+  box-shadow: 0 0 14px rgba(46, 107, 255, 0.5);
+}
+
+.prose h3 {
+  margin: 40px 0 14px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.prose h4 {
+  margin: 28px 0 12px;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.prose p {
+  margin: 18px 0;
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.prose em {
+  color: var(--blue-pale);
+  font-style: normal;
+}
+
+/* リスト */
+.prose ul,
+.prose ol {
+  margin: 18px 0;
+  padding-left: 0;
+}
+.prose ol {
+  list-style: none;
+  counter-reset: li;
+}
+.prose li {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 28px;
+  color: var(--text-body);
+}
+/* ul のマーカー：発光ブルーの菱形 */
+.prose ul > li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.75em;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--blue-light);
+  box-shadow: 0 0 8px rgba(77, 163, 255, 0.6);
+}
+/* ol のマーカー：連番 */
+.prose ol > li {
+  counter-increment: li;
+}
+.prose ol > li::before {
+  content: counter(li);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-light);
+  border: 1px solid rgba(77, 163, 255, 0.4);
+  border-radius: 999px;
+}
+/* 入れ子リスト */
+.prose li > ul,
+.prose li > ol {
+  margin: 8px 0;
+}
+
+/* リンク */
+.link {
+  color: var(--blue-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(77, 163, 255, 0.35);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.link:hover {
+  color: var(--blue-pale);
+  border-bottom-color: var(--blue-pale);
+}
+
+/* 引用 */
+.prose blockquote {
+  margin: 24px 0;
+  padding: 4px 20px;
+  border-left: 3px solid var(--blue);
+  background: rgba(46, 107, 255, 0.06);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  color: var(--text-strong);
+}
+.prose blockquote p {
+  margin: 12px 0;
+}
+
+/* インラインコード / コードブロック */
+.prose code {
+  font-family: var(--font-grotesk), monospace;
+  font-size: 0.9em;
+  padding: 0.15em 0.45em;
+  border-radius: 5px;
+  background: rgba(77, 163, 255, 0.12);
+  color: var(--blue-pale);
+}
+.prose pre {
+  margin: 24px 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  background: var(--bg-darkest);
+  border: 1px solid rgba(77, 163, 255, 0.16);
+  border-radius: var(--r-lg);
+}
+.prose pre code {
+  padding: 0;
+  background: none;
+  color: var(--text-strong);
+}
+
+/* 区切り線 */
+.prose hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px solid rgba(77, 163, 255, 0.16);
+}
+
+/* 表（GFM） */
+.prose table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.prose th,
+.prose td {
+  padding: 10px 14px;
+  border: 1px solid rgba(77, 163, 255, 0.16);
+  text-align: left;
+}
+.prose th {
+  background: rgba(46, 107, 255, 0.1);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* 画像 */
+.prose img {
+  margin: 24px auto;
+  border-radius: var(--r-card);
+  border: 1px solid rgba(77, 163, 255, 0.16);
+}
+
+@media (max-width: 768px) {
+  .prose {
+    font-size: 15.5px;
+  }
+  .prose h2 {
+    font-size: 21px;
+    margin: 44px 0 16px;
+  }
+  .prose h3 {
+    font-size: 17.5px;
+  }
+}

@@ -13,6 +13,7 @@ const NAV = [
   { href: '/#why', label: '選ばれる理由' },
   { href: '/#flow', label: 'ご依頼の流れ' },
   { href: '/#works', label: '制作事例' },
+  { href: '/blog', label: 'コラム' },
 ];
 
 export default function Header() {

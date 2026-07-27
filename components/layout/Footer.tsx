@@ -28,6 +28,9 @@ export default function Footer() {
             <Link href="/#works" className={styles.link}>
               制作事例
             </Link>
+            <Link href="/blog" className={styles.link}>
+              コラム
+            </Link>
           </div>
           <div className={styles.group}>
             <span className={`${styles.head} font-en`}>CONTACT</span>

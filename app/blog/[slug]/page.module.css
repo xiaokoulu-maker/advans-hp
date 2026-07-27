@@ -1,0 +1,114 @@
+.sec {
+  padding: 90px var(--pad-x) 100px;
+  background: var(--bg);
+}
+
+/* モバイル優先：単カラム（source 順で 目次→本文）。
+   デスクトップで本文左・目次右の2カラムへ。 */
+.layout {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(77, 163, 255, 0.14);
+}
+.date {
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-sub);
+}
+.cat {
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: var(--r-chip);
+  color: var(--accent);
+  background: rgba(255, 106, 44, 0.1);
+}
+
+.article {
+  min-width: 0; /* grid 内で pre/table のはみ出しを許容 */
+}
+
+/* FAQ ブロック */
+.faqBlock {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(77, 163, 255, 0.14);
+}
+.faqInner {
+  margin-top: 24px;
+}
+
+/* 目次サイド */
+.stickyToc {
+  position: static;
+}
+
+/* 関連記事 */
+.related {
+  padding: 96px var(--pad-x);
+  background: var(--bg-dark);
+}
+.relatedInner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.relatedGrid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── デスクトップ 2カラム ── */
+@media (min-width: 961px) {
+  .layout {
+    max-width: var(--maxw);
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 56px;
+    align-items: start;
+  }
+  /* source では aside が先だが、配置で本文を左・目次を右に固定 */
+  .article {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .aside {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .stickyToc {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+  }
+}
+
+@media (max-width: 1080px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .sec {
+    padding: 60px 24px 80px;
+  }
+  .related {
+    padding: 72px 24px;
+  }
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+  .faqBlock {
+    margin-top: 56px;
+  }
+}
