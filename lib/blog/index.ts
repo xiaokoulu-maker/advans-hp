@@ -5,26 +5,46 @@ import type {
   PaginatedPosts,
   PostHeading,
 } from './types';
-import { samplePosts } from './sample-posts';
+import { getSupabase, mapRow, POST_COLUMNS, type BlogPostRow } from './supabase';
 
 // ─────────────────────────────────────────────────────────────
 // ブログ データ取得層（唯一の“供給元”）。
 //
-// 現状はサンプル配列（samplePosts）から読む。将来 advans-ai-lp と同じ
-// Supabase `blog_posts` へ移行する際は、この 1 ファイル内の関数だけを
-// DB クエリに差し替えれば UI 側は無改修で済む（返り値の型を維持すること）。
+// Supabase `blog_posts` から公開記事（status='published'）のみを取得する。
+// UI コンポーネントはこの層の関数のみに依存し、返り値の型（./types）に依存する。
 //
-// ※ 関数は async 化してあり、将来の非同期 DB 取得へそのまま移行できる。
+// 【フォールバック方針】
+//   接続情報が無い／DB エラー時は例外を投げず、空配列 or undefined を返す。
+//   これにより DB 未接続・空でもビルド/表示が落ちない（一覧0件・個別は notFound）。
 // ─────────────────────────────────────────────────────────────
 
 /** 一覧の1ページあたり件数 */
 export const POSTS_PER_PAGE = 9;
 
-/** 内部：公開済み記事を公開日の新しい順で取得（DB 移行時はここを置き換える） */
+/**
+ * 公開済み記事を公開日の新しい順で取得。
+ * 接続不可・エラー時は空配列を返す（呼び出し側は一覧0件になる）。
+ */
 async function loadPublishedPosts(): Promise<BlogPost[]> {
-  return samplePosts
-    .filter((p) => p.status === 'published')
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  const supabase = getSupabase();
+  if (!supabase) return [];
+
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select(POST_COLUMNS)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false });
+
+    if (error) {
+      console.error('[blog] failed to load posts:', error.message);
+      return [];
+    }
+    return ((data as BlogPostRow[]) ?? []).map(mapRow);
+  } catch (e) {
+    console.error('[blog] unexpected error loading posts:', e);
+    return [];
+  }
 }
 
 /** 記事 → カード表示用サマリーへ変換 */
@@ -64,10 +84,31 @@ export async function getSitemapEntries(): Promise<{ slug: string; lastModified:
   return all.map((p) => ({ slug: p.slug, lastModified: p.updatedAt ?? p.publishedAt }));
 }
 
-/** slug から公開記事を1件取得（下書き等は返さない） */
+/**
+ * slug から公開記事を1件取得（下書き等は返さない）。
+ * 接続不可・エラー・該当なしは undefined（呼び出し側は notFound）。
+ */
 export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {
-  const all = await loadPublishedPosts();
-  return all.find((p) => p.slug === slug);
+  const supabase = getSupabase();
+  if (!supabase) return undefined;
+
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select(POST_COLUMNS)
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .maybeSingle();
+
+    if (error) {
+      console.error('[blog] failed to load post:', error.message);
+      return undefined;
+    }
+    return data ? mapRow(data as BlogPostRow) : undefined;
+  } catch (e) {
+    console.error('[blog] unexpected error loading post:', e);
+    return undefined;
+  }
 }
 
 /**
