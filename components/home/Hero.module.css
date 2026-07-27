@@ -45,6 +45,7 @@
 }
 
 .wmText {
+  flex-shrink: 0; /* 狭幅でも縮小させない */
   color: transparent;
   background: linear-gradient(
     100deg,
@@ -59,6 +60,7 @@
 /* A の器：実物ロゴをここにはめ込む */
 .aWrap {
   position: relative;
+  flex-shrink: 0; /* ★狭幅でAロゴがflexでゼロ幅に潰されるのを防ぐ（スマホでA消失の原因） */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +78,7 @@
 }
 .symbol {
   position: relative;
+  flex-shrink: 0;
   /* em の基準を wordmark サイズに固定し、width も明示（width:auto の解決差を排除） */
   font-size: var(--wm-size);
   height: var(--wm-a-h);
@@ -344,8 +347,9 @@
     align-items: stretch;
   }
   .wordmark {
-    --wm-size: clamp(3.5rem, 30vw, 9rem);
+    /* flex-shrink:0 でAロゴもREV/NSと同倍率で残るため、全文字が収まるサイズに */
+    --wm-size: clamp(2.6rem, 22vw, 7rem);
     align-items: flex-start;
-    padding-top: 8%;
+    padding-top: 12%;
   }
 }
