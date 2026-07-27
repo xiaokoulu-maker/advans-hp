@@ -175,7 +175,13 @@
   }
 }
 
-/* --- 背景アニメレイヤー --- */
+/* --- 背景アニメレイヤー（装飾のみ・クリックを一切奪わない） --- */
+.grid,
+.orb,
+.orb2,
+.sweep {
+  pointer-events: none;
+}
 .grid {
   position: absolute;
   inset: 0;

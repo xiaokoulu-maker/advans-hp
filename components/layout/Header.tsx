@@ -46,12 +46,9 @@ export default function Header() {
           <span className={`${styles.bar} ${open ? styles.barOpen3 : ''}`} />
         </button>
 
-        {/* モバイル用オーバーレイ（タップで閉じる） */}
-        <div
-          className={`${styles.overlay} ${open ? styles.overlayOpen : ''}`}
-          onClick={close}
-          aria-hidden
-        />
+        {/* モバイル用オーバーレイ：開いている時だけDOMに存在させる。
+            閉じている間は要素自体が無いので、iOS等でのヒットテスト奪取が起きない。 */}
+        {open && <div className={styles.overlay} onClick={close} aria-hidden />}
 
         <nav
           id="global-nav"
