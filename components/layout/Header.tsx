@@ -7,7 +7,8 @@ import styles from './Header.module.css';
 
 // ナビは全ページ共通。トップの各セクションへはルート相対アンカーで戻す。
 const NAV = [
-  { href: '/#concept', label: 'REVANSについて' },
+  // REVANSについては独立ページ /company へ（他はトップ内スクロール）
+  { href: '/company', label: 'REVANSについて' },
   { href: '/#services', label: '事業内容' },
   { href: '/#why', label: '選ばれる理由' },
   { href: '/#flow', label: 'ご依頼の流れ' },

@@ -19,7 +19,7 @@ export default function Footer() {
         <div className={styles.links}>
           <div className={styles.group}>
             <span className={`${styles.head} font-en`}>SITEMAP</span>
-            <Link href="/#concept" className={styles.link}>
+            <Link href="/company" className={styles.link}>
               REVANSについて
             </Link>
             <Link href="/#services" className={styles.link}>

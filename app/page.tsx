@@ -1,5 +1,4 @@
 import Hero from '@/components/home/Hero';
-import Concept from '@/components/home/Concept';
 import Services from '@/components/home/Services';
 import WhyRevans from '@/components/home/WhyRevans';
 import Flow from '@/components/home/Flow';
@@ -11,7 +10,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Concept />
       <Services />
       <WhyRevans />
       <Flow />
