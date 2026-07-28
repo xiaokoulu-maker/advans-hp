@@ -1,5 +1,5 @@
 -- ============================================================================
--- advans-hp ブログ サンプル記事シード（3本）
+-- revans-hp ブログ サンプル記事シード（3本）
 -- lib/blog/sample-posts.ts の内容を blog_posts へ INSERT する。
 -- Supabase SQL Editor に schema.sql 実行後、続けて貼り付けて実行できる。
 --

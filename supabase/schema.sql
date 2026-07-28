@@ -1,12 +1,12 @@
 -- ============================================================================
--- advans-hp ブログ機能スキーマ
+-- revans-hp ブログ機能スキーマ
 -- Supabase の SQL Editor にこのまま貼り付けて実行できる CREATE TABLE 一式。
 --
 -- テーブル定義は ../advans-ai-lp/supabase/migrations/0001_blog.sql に準拠。
 --   blog_posts    : 記事本体（手動投稿・AI生成の両方を格納）
 --   blog_settings : ブログ全体の設定（単一行想定）
 --
--- 追加要件（advans-hp 側）:
+-- 追加要件（revans-hp 側）:
 --   - RLS を有効化
 --   - anon は status = 'published' の行のみ SELECT 可
 --   - 書き込み系ポリシーは作らない（更新は service_role のみが行う前提。

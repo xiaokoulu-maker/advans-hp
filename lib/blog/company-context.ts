@@ -4,7 +4,7 @@ import { services, serviceDetails, reasons, flow } from '@/lib/data';
 // ─────────────────────────────────────────────────────────────
 // REVANS「根拠データ」——AIブログ生成で唯一の事実の情報源。
 //
-// 情報源は advans-hp 内の既存コンテンツのみ:
+// 情報源は revans-hp 内の既存コンテンツのみ:
 //   - lib/site.ts（SITE）
 //   - lib/data.ts（services / serviceDetails / reasons / flow）
 //   - app/company/page.tsx（POLICIES / OVERVIEW の一部を下に転記）

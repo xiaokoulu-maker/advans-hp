@@ -1,13 +1,13 @@
 [index (3).html](https://github.com/user-attachments/files/29940232/index.3.html)
-# advans-hp<!DOCTYPE html>
+# revans-hp<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advans｜Web制作・集客支援</title>
-<meta name="description" content="Advansは、LP・ホームページ制作から集客の設計まで、成果から逆算するWeb制作パートナーです。">
+<title>REVANS｜Web制作・集客支援</title>
+<meta name="description" content="REVANSは、LP・ホームページ制作から集客の設計まで、成果から逆算するWeb制作パートナーです。">
 
-<meta property="og:title" content="Advans｜Web制作・集客支援">
+<meta property="og:title" content="REVANS｜Web制作・集客支援">
 <meta property="og:description" content="つくって終わり、にしない。成果から逆算するWeb制作パートナー。">
 <meta property="og:type" content="website">
 
@@ -239,7 +239,7 @@
 
 <header id="header">
   <nav class="nav">
-    <a href="#top" class="brand" aria-label="Advans ホーム">
+    <a href="#top" class="brand" aria-label="REVANS ホーム">
       <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
         <defs><linearGradient id="swH" x1="0" y1="1" x2="1" y2="0">
           <stop offset="0" stop-color="#B63A15"/><stop offset=".5" stop-color="#E44800"/><stop offset="1" stop-color="#FF7A22"/>
@@ -247,11 +247,11 @@
         <path fill="#181818" fill-rule="evenodd" d="M50,9L90,91L67,91L50,57L33,91L10,91ZM50,31L41,54L59,54Z"/>
         <path fill="url(#swH)" d="M15,72C42,66,68,57,89,29C91,26,93,26,92,29C91,33,88,37,83,41C63,58,43,66,22,75C18,77,13,76,15,72Z"/>
       </svg>
-      <span class="brand-name">Advans</span>
+      <span class="brand-name">REVANS</span>
     </a>
     <div class="nav-links">
       <a href="#philosophy" class="n">理念</a>
-      <a href="#about" class="n">Advansとは</a>
+      <a href="#about" class="n">REVANSとは</a>
       <a href="#services" class="n">できること</a>
       <a href="#flow" class="n">進め方</a>
       <a href="#contact" class="btn magnetic">相談する <span class="arw">→</span></a>
@@ -279,7 +279,7 @@
     </h1>
     <p class="sub">
       LP・広告・AIを通じて、集客の&ldquo;課題&rdquo;を解決する。<br>
-      Advansは、企業の可能性を一歩前へ進める、Webのパートナーです。<br>
+      REVANSは、企業の可能性を一歩前へ進める、Webのパートナーです。<br>
       見た目を整えるだけで終わらせず、「問い合わせが増える」まで設計します。
     </p>
     <div class="cta-row">
@@ -300,7 +300,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Philosophy</span>
-      <h2>Advansが、大切にしていること。</h2>
+      <h2>REVANSが、大切にしていること。</h2>
       <p>「なんとなく」で作らない。私たちの仕事は、この3つの軸から始まります。</p>
     </div>
     <div class="phil-list stagger">
@@ -336,7 +336,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">About</span>
       <h2>大きくないからこそ、速く、近い。</h2>
-      <p>制作会社に頼むと、やり取りが多くて遅い。フリーランスに頼むと、公開後は放置される。Advansは、その間を埋めます。窓口はひとつ、判断は速く、そして「つくって終わり」にしない。</p>
+      <p>制作会社に頼むと、やり取りが多くて遅い。フリーランスに頼むと、公開後は放置される。REVANSは、その間を埋めます。窓口はひとつ、判断は速く、そして「つくって終わり」にしない。</p>
     </div>
     <div class="pillars stagger">
       <div class="pillar">
@@ -469,7 +469,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="foot-mark" aria-hidden="true">Advans</div>
+  <div class="foot-mark" aria-hidden="true">REVANS</div>
   <div class="wrap">
     <div class="foot-top">
       <div>
@@ -481,19 +481,19 @@
             <path fill="#F4F4F2" fill-rule="evenodd" d="M50,9L90,91L67,91L50,57L33,91L10,91ZM50,31L41,54L59,54Z"/>
             <path fill="url(#swF)" d="M15,72C42,66,68,57,89,29C91,26,93,26,92,29C91,33,88,37,83,41C63,58,43,66,22,75C18,77,13,76,15,72Z"/>
           </svg>
-          <span>Advans</span>
+          <span>REVANS</span>
         </div>
         <p class="foot-desc">成果から逆算するWeb制作パートナー。LP・ホームページ制作から集客設計まで。</p>
       </div>
       <div class="foot-info">
-        屋号 &nbsp;<b>Advans</b><br>
+        屋号 &nbsp;<b>REVANS</b><br>
         事業 &nbsp;<b>Web制作 / 集客支援</b><br>
         対応 &nbsp;<b>全国オンライン対応</b><br>
         連絡 &nbsp;<b>xiaokoulu@gmail.com</b>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Advans. All rights reserved.</span>
+      <span>© 2026 REVANS. All rights reserved.</span>
       <span>WEB PRODUCTION / MARKETING</span>
     </div>
   </div>
