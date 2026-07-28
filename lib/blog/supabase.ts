@@ -99,3 +99,188 @@ export function mapRow(row: BlogPostRow): BlogPost {
     relatedSlugs: undefined,
   };
 }
+
+// ═════════════════════════════════════════════════════════════
+// 書き込み経路（サーバー専用・service_role）
+//
+// 匿名キー（getSupabase 上部）は RLS により published の SELECT しかできない。
+// AI下書きの INSERT / 公開への UPDATE は RLS をバイパスする service_role が必要。
+// SUPABASE_SERVICE_ROLE_KEY は NEXT_PUBLIC_ を付けず、サーバー側でのみ使う。
+//
+// このセクションの関数はサーバー（app/api/cron/generate 等）からのみ呼ぶこと。
+// クライアントバンドルに混入したら例外を投げるガードを入れている。
+// ═════════════════════════════════════════════════════════════
+
+let serviceCached: SupabaseClient | null | undefined;
+
+/**
+ * service_role キーで作るサーバー専用クライアント。
+ * ・ブラウザ環境で呼ばれたら即例外（サービスキーの露出防止）。
+ * ・キー未設定なら null を返し、呼び出し側が扱えるようにする。
+ */
+export function getServiceSupabase(): SupabaseClient | null {
+  if (typeof window !== 'undefined') {
+    throw new Error(
+      '[blog] getServiceSupabase() はサーバー専用です。クライアント側から呼び出さないでください。',
+    );
+  }
+
+  if (serviceCached !== undefined) return serviceCached;
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    serviceCached = null;
+    return null;
+  }
+
+  serviceCached = createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  return serviceCached;
+}
+
+/** blog_settings（単一行）の値。未取得時は autoPublish=false 扱い。 */
+export interface BlogSettingsValues {
+  autoPublish: boolean;
+  postsPerPage: number;
+  defaultAuthor: string;
+}
+
+const DEFAULT_SETTINGS: BlogSettingsValues = {
+  autoPublish: false,
+  postsPerPage: 9,
+  defaultAuthor: '',
+};
+
+/**
+ * blog_settings を1行取得する。行が無い／接続不可なら autoPublish=false の既定を返す。
+ * 「行が無ければ非公開扱い」で、意図せぬ自動公開を防ぐ。
+ */
+export async function getBlogSettings(): Promise<BlogSettingsValues> {
+  const supabase = getServiceSupabase();
+  if (!supabase) return DEFAULT_SETTINGS;
+
+  const { data, error } = await supabase
+    .from('blog_settings')
+    .select('auto_publish, posts_per_page, default_author')
+    .limit(1)
+    .maybeSingle();
+
+  if (error || !data) return DEFAULT_SETTINGS;
+
+  return {
+    autoPublish: Boolean((data as { auto_publish?: unknown }).auto_publish),
+    postsPerPage: Number((data as { posts_per_page?: unknown }).posts_per_page) || 9,
+    defaultAuthor: String((data as { default_author?: unknown }).default_author ?? ''),
+  };
+}
+
+/** blog_posts の全 slug（下書き含む・全 status）。テーマ重複回避と slug 一意化に使う。 */
+export async function listAllSlugs(): Promise<string[]> {
+  const supabase = getServiceSupabase();
+  if (!supabase) return [];
+
+  const { data, error } = await supabase.from('blog_posts').select('slug');
+  if (error || !data) {
+    if (error) console.error('[blog] listAllSlugs failed:', error.message);
+    return [];
+  }
+  return (data as { slug: string }[]).map((r) => r.slug);
+}
+
+/** 下書き作成の入力（camelCase） */
+export interface CreateDraftInput {
+  slug: string;
+  title: string;
+  body: string;
+  excerpt: string;
+  seoTitle: string;
+  metaDescription: string;
+  targetKeywords: string[];
+  faq: FaqItem[];
+  summary: string;
+  ctaText: string;
+  needsReview: boolean;
+}
+
+/** 作成結果（camelCase） */
+export interface CreatedPost {
+  id: string;
+  slug: string;
+  title: string;
+  status: string;
+  needsReview: boolean;
+}
+
+/**
+ * AI記事を status='draft' / source='ai' で1件保存する。
+ * headings は保存しない（表示側は本文Markdownから導出するため '[]' を入れる）。
+ * service_role 未設定時は例外（呼び出し側で 500 相当のレスポンスにする）。
+ */
+export async function createDraftPost(input: CreateDraftInput): Promise<CreatedPost> {
+  const supabase = getServiceSupabase();
+  if (!supabase) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY が未設定のため、記事を保存できません。');
+  }
+
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .insert({
+      slug: input.slug,
+      title: input.title,
+      body: input.body,
+      excerpt: input.excerpt,
+      status: 'draft',
+      published_at: null,
+      seo_title: input.seoTitle,
+      meta_description: input.metaDescription,
+      target_keywords: input.targetKeywords,
+      headings: [],
+      faq: input.faq,
+      summary: input.summary,
+      cta_text: input.ctaText,
+      source: 'ai',
+      needs_review: input.needsReview,
+    })
+    .select('id, slug, title, status, needs_review')
+    .single();
+
+  if (error || !data) {
+    throw new Error(`記事の保存に失敗しました: ${error?.message ?? '不明なエラー'}`);
+  }
+
+  const row = data as { id: string; slug: string; title: string; status: string; needs_review: boolean };
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: row.title,
+    status: row.status,
+    needsReview: row.needs_review,
+  };
+}
+
+/**
+ * 記事の公開状態を更新する（下書き→公開など）。
+ * status='published' のときは publishedAt をセットする。成否を boolean で返す。
+ */
+export async function updatePostStatus(
+  id: string,
+  status: 'draft' | 'published' | 'private',
+  publishedAt: string | null,
+): Promise<boolean> {
+  const supabase = getServiceSupabase();
+  if (!supabase) return false;
+
+  const { error } = await supabase
+    .from('blog_posts')
+    .update({ status, published_at: publishedAt })
+    .eq('id', id);
+
+  if (error) {
+    console.error('[blog] updatePostStatus failed:', error.message);
+    return false;
+  }
+  return true;
+}
