@@ -2,7 +2,7 @@
 // 法人格（株式会社）は未確定のため断定表記しない。
 
 export const SITE = {
-  url: 'https://advans-hp.vercel.app',
+  url: 'https://revans-web.com',
   name: 'REVANS',
   nameJa: 'レバンス',
   concept: '中小企業に、前進する革命を。',
