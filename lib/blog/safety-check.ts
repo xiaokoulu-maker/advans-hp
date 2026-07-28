@@ -1,16 +1,28 @@
 import { REVIEW_MARKER, type GeneratedArticle } from '@/lib/blog/generate-prompt';
 
 // ─────────────────────────────────────────────────────────────
-// 生成記事の簡易安全チェック。人の確認が必要な記述を検出して needsReview を返す。
+// 生成記事の簡易安全チェック。
+//
+// 完全自動運用（auto_publish=true）を前提に、needsReview の対象は
+//   (1) [要確認] マーカーの有無
+//   (2) 具体的な金額表現（○円／○万円）
+// の2つだけに絞る。この2つは「人が確認しないと公開できない」度合いが高い。
+//
+// 誇大表現（必ず／保証／No.1 等）や実績断定の語句マッチは、疑問文・注意喚起文
+// （「〜と断定する業者に注意」等）での誤検出が多く、needsReview に含めると
+// 完全自動運用では draft が永久に塩漬けになる。そのため needsReview からは外し、
+// 検出しても notes に積んでログ出力するだけに留める（公開はブロックしない）。
+//
 // REVANSは全国オンライン対応のため、エリア（地名）チェックは行わない。
-// 厳密さより網羅性を優先し、拾い漏れより拾い過ぎ側に倒す。
 // ─────────────────────────────────────────────────────────────
 
 export interface SafetyCheckResult {
   /** true の場合、公開前に人の確認が必要（blog_posts.needs_review に入れる） */
   needsReview: boolean;
-  /** 検出理由（ログ・レスポンス表示用） */
+  /** needsReview の理由（[要確認]／金額表現）。ログ・レスポンス表示用 */
   reasons: string[];
+  /** 公開はブロックしないが参考ログに残す検出（誇大表現・実績断定など） */
+  notes: string[];
 }
 
 /** 金額に踏み込んだ記述（円・万円） */
@@ -50,12 +62,16 @@ function collectText(article: Partial<GeneratedArticle>): string {
 }
 
 /**
- * 生成記事に、人の確認が必要な記述が含まれていないかを簡易チェックする。
+ * 生成記事をチェックする。
+ * ・reasons（＝needsReview の対象）は [要確認] マーカーと金額表現の2つだけ。
+ * ・誇大表現・実績断定は notes に積んでログ出力するのみ（公開はブロックしない）。
  */
 export function checkArticleSafety(article: Partial<GeneratedArticle>): SafetyCheckResult {
   const text = collectText(article);
   const reasons: string[] = [];
+  const notes: string[] = [];
 
+  // ── needsReview の対象（公開をブロックする） ──
   if (text.includes(REVIEW_MARKER)) {
     reasons.push(`${REVIEW_MARKER} マーカーが含まれています`);
   }
@@ -64,16 +80,22 @@ export function checkArticleSafety(article: Partial<GeneratedArticle>): SafetyCh
     reasons.push('金額表現（円・万円）が含まれています');
   }
 
+  // ── ログのみ（needsReview には含めない） ──
   if (HYPE_PATTERNS.some((pattern) => pattern.test(text))) {
-    reasons.push('誇大表現・優良誤認になりうる断定が含まれています');
+    notes.push('誇大表現・優良誤認になりうる断定の可能性がある表現を検出しました');
   }
 
   if (CLAIM_PATTERNS.some((pattern) => pattern.test(text))) {
-    reasons.push('根拠データに無い実績・成果の断定の可能性がある表現が含まれています');
+    notes.push('根拠データに無い実績・成果の断定の可能性がある表現を検出しました');
+  }
+
+  if (notes.length > 0) {
+    console.info(`[blog] safety notes (公開はブロックしません): ${notes.join(' / ')}`);
   }
 
   return {
     needsReview: reasons.length > 0,
     reasons,
+    notes,
   };
 }
