@@ -23,6 +23,17 @@ export const BLOG_MODEL = 'claude-opus-4-8';
 /** 出力トークン上限。 */
 export const BLOG_MAX_TOKENS = 12000;
 
+/** 生成1回のトークン使用量とコスト概算（コスト把握・ログ用）。 */
+export interface GenerationUsage {
+  inputTokens: number;
+  outputTokens: number;
+  /** プロンプトキャッシュ書き込み/読み取り（対応時のみ。無ければ0）。 */
+  cacheCreationInputTokens: number;
+  cacheReadInputTokens: number;
+  /** BLOG_MODEL の単価で概算した金額（USD）。 */
+  estimatedCostUsd: number;
+}
+
 export interface GenerateArticleResult {
   /** true=APIキー未設定のためサンプル記事を返した */
   stub: boolean;
@@ -30,8 +41,40 @@ export interface GenerateArticleResult {
   targetKeywords?: string[];
   needsReview?: boolean;
   reasons?: string[];
+  /** 実生成時のトークン使用量・コスト概算（スタブ/失敗時は undefined）。 */
+  usage?: GenerationUsage;
   /** 生成に失敗した場合の説明（呼び出し側で表示。例外は投げない）。 */
   error?: string;
+}
+
+/** BLOG_MODEL（Opus 4.8）の100万トークンあたり単価（USD）。差し替えはここ1箇所。 */
+export const BLOG_PRICE_PER_MTOK = { input: 5, output: 25 } as const;
+
+/** usage からコスト概算を作る。キャッシュ読み取りは入力の約0.1倍で概算。 */
+function toGenerationUsage(usage: {
+  input_tokens?: number | null;
+  output_tokens?: number | null;
+  cache_creation_input_tokens?: number | null;
+  cache_read_input_tokens?: number | null;
+}): GenerationUsage {
+  const inputTokens = usage.input_tokens ?? 0;
+  const outputTokens = usage.output_tokens ?? 0;
+  const cacheCreationInputTokens = usage.cache_creation_input_tokens ?? 0;
+  const cacheReadInputTokens = usage.cache_read_input_tokens ?? 0;
+
+  const cost =
+    ((inputTokens + cacheCreationInputTokens) * BLOG_PRICE_PER_MTOK.input +
+      cacheReadInputTokens * BLOG_PRICE_PER_MTOK.input * 0.1 +
+      outputTokens * BLOG_PRICE_PER_MTOK.output) /
+    1_000_000;
+
+  return {
+    inputTokens,
+    outputTokens,
+    cacheCreationInputTokens,
+    cacheReadInputTokens,
+    estimatedCostUsd: Math.round(cost * 10000) / 10000,
+  };
 }
 
 /** APIキーがあるときだけクライアントを作る（未設定でのビルド・起動を壊さないため） */
@@ -191,6 +234,12 @@ export async function generateArticle(input: GenerateArticleInput): Promise<Gene
 
     const article = normalizeArticle(parsed as Record<string, unknown>, input);
     const safety = checkArticleSafety(article);
+    const usage = toGenerationUsage(response.usage ?? {});
+
+    console.info(
+      `[blog] generated "${article.title}" | in=${usage.inputTokens} out=${usage.outputTokens} ` +
+        `cacheRead=${usage.cacheReadInputTokens} est=$${usage.estimatedCostUsd}`,
+    );
 
     return {
       stub: false,
@@ -198,6 +247,7 @@ export async function generateArticle(input: GenerateArticleInput): Promise<Gene
       targetKeywords,
       needsReview: safety.needsReview,
       reasons: safety.reasons,
+      usage,
     };
   } catch (error) {
     console.error('[blog] generateArticle failed:', error);

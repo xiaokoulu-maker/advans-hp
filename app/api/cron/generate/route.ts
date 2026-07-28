@@ -89,8 +89,27 @@ export async function GET(request: NextRequest) {
       needsReview,
     });
   } catch (error) {
+    // 保存に失敗しても、生成済みの本文はAPI費用をかけて得た成果物なので破棄せず返す。
+    // （エラー扱い＝ok:false のまま。呼び出し側で本文だけ救出できる形にする）
     return NextResponse.json(
-      { ok: false, theme: topic.theme, slug, error: (error as Error).message },
+      {
+        ok: false,
+        theme: topic.theme,
+        slug,
+        error: (error as Error).message,
+        stub: result.stub,
+        needsReview,
+        reasons: result.reasons ?? [],
+        usage: result.usage ?? null,
+        rescued: {
+          title: article.title,
+          slug,
+          seoTitle: article.seoTitle,
+          metaDescription: article.metaDescription,
+          body,
+          charCount: body.length,
+        },
+      },
       { status: 500 },
     );
   }
@@ -126,5 +145,6 @@ export async function GET(request: NextRequest) {
     needsReview,
     reason,
     reasons: result.reasons ?? [],
+    usage: result.usage ?? null,
   });
 }
